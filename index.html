@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>کلاس برنامه‌نویسی و رباتیک | کدنو</title>
+<link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+<style>
+:root{--bg-primary:#07071a;--bg-secondary:#0c0c24;--bg-card:#121233;--bg-card-hover:#181840;--accent-cyan:#00e5ff;--accent-purple:#b44dff;--accent-pink:#ff3d71;--accent-orange:#ff9100;--accent-green:#00e676;--accent-yellow:#ffd700;--text-primary:#f0f0f8;--text-secondary:#c0c0d8;--text-muted:#8888a8;--border-subtle:#1f1f45;--border-glow:#3a3a7a;--shadow-cyan:0 0 30px rgba(0,229,255,0.3);--shadow-purple:0 0 30px rgba(180,77,255,0.3);--shadow-pink:0 0 30px rgba(255,61,113,0.3);--radius-sm:10px;--radius-md:16px;--radius-lg:24px;--radius-xl:32px;--transition-fast:0.25s cubic-bezier(0.4,0,0.2,1);--transition-smooth:0.4s cubic-bezier(0.4,0,0.2,1);--font-vazir:'Vazirmatn','Tahoma',sans-serif}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:var(--font-vazir);background-color:var(--bg-primary);color:var(--text-primary);line-height:1.7;overflow-x:hidden;direction:rtl;position:relative;min-height:100vh;cursor:default}
+.particles-container{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;overflow:hidden}
+.particle{position:absolute;border-radius:50%;animation:floatUp linear infinite;opacity:0}
+@keyframes floatUp{0%{transform:translateY(105vh) scale(0);opacity:0}10%{opacity:0.8}90%{opacity:0.6}100%{transform:translateY(-10vh) scale(1.5);opacity:0}}
+@keyframes twinkle{0%,100%{opacity:0.3}50%{opacity:1}}
+.star-dot{position:absolute;width:2px;height:2px;background:#fff;border-radius:50%;animation:twinkle 3s ease-in-out infinite}
+.grid-bg{position:fixed;top:0;left:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:0.03;background-image:linear-gradient(rgba(0,229,255,0.4) 1px,transparent 1px),linear-gradient(90deg,rgba(0,229,255,0.4) 1px,transparent 1px);background-size:50px 50px;animation:gridShift 20s linear infinite}
+@keyframes gridShift{0%{background-position:0 0,0 0}100%{background-position:50px 50px,50px 50px}}
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;transition:var(--transition-smooth);padding:0.8rem 0;background:transparent}
+.navbar.scrolled{background:rgba(10,10,30,0.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);box-shadow:0 4px 30px rgba(0,0,0,0.5);border-bottom:1px solid var(--border-subtle)}
+.navbar .container{display:flex;align-items:center;justify-content:space-between;max-width:1200px;margin:0 auto;padding:0 1.5rem}
+.nav-logo{font-size:1.8rem;font-weight:900;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:flex;align-items:center;gap:0.5rem;text-decoration:none;z-index:1001}
+.nav-logo .logo-icon{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));border-radius:var(--radius-sm);color:#fff;font-size:1.3rem;box-shadow:var(--shadow-cyan)}
+.nav-links{display:flex;list-style:none;gap:0.3rem;align-items:center}
+.nav-links a{color:var(--text-secondary);text-decoration:none;font-weight:500;font-size:0.95rem;padding:0.55rem 1.1rem;border-radius:var(--radius-sm);transition:var(--transition-fast);position:relative;white-space:nowrap}
+.nav-links a:hover,.nav-links a.active{color:#fff;background:rgba(255,255,255,0.06)}
+.nav-links .nav-cta{background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));color:#fff!important;font-weight:700;padding:0.6rem 1.4rem;border-radius:50px;box-shadow:var(--shadow-cyan);transition:var(--transition-smooth)}
+.nav-links .nav-cta:hover{transform:translateY(-2px);box-shadow:0 0 40px rgba(0,229,255,0.5);background:linear-gradient(135deg,#33eaff,#c56dff)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001;background:none;border:none;padding:8px}
+.hamburger span{display:block;width:28px;height:3px;background:#fff;border-radius:3px;transition:var(--transition-fast)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,6px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-6px)}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:6rem 1.5rem 4rem;z-index:1;overflow:hidden}
+.hero .container{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1200px;width:100%;align-items:center}
+.hero-text{display:flex;flex-direction:column;gap:1.5rem}
+.hero-badge{display:inline-flex;align-items:center;gap:0.5rem;background:rgba(0,229,255,0.1);border:1px solid rgba(0,229,255,0.35);color:var(--accent-cyan);padding:0.5rem 1.2rem;border-radius:50px;font-size:0.9rem;font-weight:600;width:fit-content;animation:pulseBadge 2s ease-in-out infinite}
+@keyframes pulseBadge{0%,100%{box-shadow:0 0 0 0 rgba(0,229,255,0.4)}50%{box-shadow:0 0 0 14px rgba(0,229,255,0)}}
+.hero-title{font-size:3.2rem;font-weight:900;line-height:1.3;color:#fff;min-height:4em}
+.hero-title .static-text{display:block}
+.hero-title .dynamic-text{background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;display:inline-block;position:relative}
+.hero-title .dynamic-text::after{content:'|';color:#fff;animation:blink 0.8s step-end infinite;margin-right:2px}
+@keyframes blink{50%{opacity:0}}
+.hero-subtitle{font-size:1.15rem;color:var(--text-secondary);line-height:1.9;max-width:500px}
+.hero-buttons{display:flex;gap:1rem;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:0.5rem;padding:0.85rem 1.8rem;border-radius:50px;font-weight:700;font-size:1rem;text-decoration:none;cursor:pointer;transition:var(--transition-smooth);border:none;font-family:var(--font-vazir);white-space:nowrap;position:relative;overflow:hidden}
+.btn-primary{background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));color:#fff;box-shadow:var(--shadow-cyan)}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 0 50px rgba(0,229,255,0.5);background:linear-gradient(135deg,#33eaff,#c56dff)}
+.btn-outline{background:transparent;border:2px solid var(--border-glow);color:#fff}
+.btn-outline:hover{background:rgba(255,255,255,0.05);border-color:var(--accent-cyan);box-shadow:var(--shadow-cyan);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:2rem;margin-top:0.5rem}
+.hero-stat{display:flex;flex-direction:column}
+.hero-stat .stat-num{font-size:2rem;font-weight:900;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-stat .stat-label{font-size:0.85rem;color:var(--text-muted);font-weight:500}
+.hero-visual{display:flex;align-items:center;justify-content:center;position:relative}
+.hero-robot-wrapper{position:relative;width:340px;height:340px;animation:floatRobot 5s ease-in-out infinite}
+@keyframes floatRobot{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+.robot-orb{position:absolute;border-radius:50%;animation:orbPulse 3s ease-in-out infinite}
+.robot-orb.orb-1{width:120px;height:120px;background:radial-gradient(circle,rgba(0,229,255,0.5),transparent 70%);top:10%;left:5%}
+.robot-orb.orb-2{width:90px;height:90px;background:radial-gradient(circle,rgba(180,77,255,0.5),transparent 70%);bottom:15%;right:5%;animation-delay:1s}
+.robot-orb.orb-3{width:70px;height:70px;background:radial-gradient(circle,rgba(255,145,0,0.4),transparent 70%);top:50%;right:10%;animation-delay:2s}
+@keyframes orbPulse{0%,100%{transform:scale(1);opacity:0.6}50%{transform:scale(1.4);opacity:1}}
+.robot-art{position:relative;z-index:2;width:200px;height:240px;margin:0 auto}
+.robot-head{width:100px;height:90px;background:linear-gradient(145deg,#2a2a5a,#1a1a40);border-radius:20px;margin:0 auto;position:relative;border:2px solid var(--accent-cyan);box-shadow:0 0 25px rgba(0,229,255,0.35),inset 0 0 15px rgba(0,229,255,0.1)}
+.robot-eye{position:absolute;width:16px;height:16px;background:var(--accent-cyan);border-radius:50%;top:30px;box-shadow:0 0 12px var(--accent-cyan);transition:transform 0.1s}
+.robot-eye.left{left:22px}.robot-eye.right{right:22px}
+.robot-mouth{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);width:30px;height:6px;background:var(--accent-green);border-radius:3px;box-shadow:0 0 8px var(--accent-green);animation:mouthGlow 2s ease-in-out infinite}
+@keyframes mouthGlow{0%,100%{box-shadow:0 0 8px var(--accent-green)}50%{box-shadow:0 0 20px var(--accent-green),0 0 40px var(--accent-green)}}
+.robot-antenna{position:absolute;top:-18px;left:50%;transform:translateX(-50%);width:4px;height:18px;background:var(--accent-purple);border-radius:2px}
+.robot-antenna::after{content:'';position:absolute;top:-8px;left:50%;transform:translateX(-50%);width:12px;height:12px;background:var(--accent-pink);border-radius:50%;box-shadow:0 0 15px var(--accent-pink);animation:antennaGlow 2s ease-in-out infinite}
+@keyframes antennaGlow{0%,100%{box-shadow:0 0 15px var(--accent-pink)}50%{box-shadow:0 0 30px var(--accent-pink),0 0 50px var(--accent-pink)}}
+.robot-body{width:70px;height:80px;background:linear-gradient(145deg,#2a2a5a,#1a1a40);border-radius:15px;margin:12px auto 0;position:relative;border:2px solid var(--accent-purple);box-shadow:0 0 25px rgba(180,77,255,0.3),inset 0 0 15px rgba(180,77,255,0.08)}
+.robot-body-inner{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:30px;height:30px;border:2px solid var(--accent-cyan);border-radius:50%;animation:bodyCoreSpin 4s linear infinite;box-shadow:0 0 10px rgba(0,229,255,0.3)}
+@keyframes bodyCoreSpin{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
+.robot-arm{position:absolute;width:12px;height:50px;background:linear-gradient(180deg,#2a2a5a,#1a1a40);border-radius:8px;top:30px;border:1px solid var(--border-glow)}
+.robot-arm.left-arm{left:-20px;animation:armWaveLeft 2s ease-in-out infinite}
+.robot-arm.right-arm{right:-20px;animation:armWaveRight 2s ease-in-out infinite}
+@keyframes armWaveLeft{0%,100%{transform:rotate(15deg)}50%{transform:rotate(30deg)}}
+@keyframes armWaveRight{0%,100%{transform:rotate(-15deg)}50%{transform:rotate(-30deg)}}
+.robot-hover-ring{position:absolute;width:260px;height:260px;border:2px dashed rgba(255,255,255,0.1);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);animation:ringSpin 20s linear infinite}
+.robot-hover-ring-2{position:absolute;width:300px;height:300px;border:1px dashed rgba(0,229,255,0.15);border-radius:50%;top:50%;left:50%;transform:translate(-50%,-50%);animation:ringSpin 25s linear infinite reverse}
+@keyframes ringSpin{0%{transform:translate(-50%,-50%) rotate(0deg)}100%{transform:translate(-50%,-50%) rotate(360deg)}}
+.section{position:relative;z-index:1;padding:5rem 1.5rem}
+.container{max-width:1200px;margin:0 auto}
+.section-header{text-align:center;margin-bottom:3.5rem;opacity:0;transform:translateY(30px);transition:opacity 0.8s,transform 0.8s}
+.section-header.revealed{opacity:1;transform:translateY(0)}
+.section-label{display:inline-block;font-size:0.85rem;font-weight:700;color:var(--accent-cyan);text-transform:uppercase;letter-spacing:2px;margin-bottom:0.8rem;background:rgba(0,229,255,0.08);padding:0.4rem 1.2rem;border-radius:50px}
+.section-title{font-size:2.4rem;font-weight:900;color:#fff;margin-bottom:0.8rem;line-height:1.4}
+.section-subtitle{font-size:1.05rem;color:var(--text-muted);max-width:600px;margin:0 auto}
+.reveal-item{opacity:0;transform:translateY(40px);transition:opacity 0.7s,transform 0.7s}
+.reveal-item.revealed{opacity:1;transform:translateY(0)}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.8rem}
+.feature-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:2.2rem 1.8rem;transition:var(--transition-smooth);position:relative;overflow:hidden;text-align:center}
+.feature-card::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle at center,rgba(0,229,255,0.04) 0%,transparent 60%);opacity:0;transition:opacity 0.5s}
+.feature-card:hover::before{opacity:1}
+.feature-card:hover{transform:translateY(-8px);border-color:var(--accent-cyan);box-shadow:0 15px 40px rgba(0,0,0,0.4),0 0 30px rgba(0,229,255,0.12);background:var(--bg-card-hover)}
+.feature-icon{width:65px;height:65px;border-radius:var(--radius-md);display:inline-flex;align-items:center;justify-content:center;font-size:1.8rem;margin-bottom:1.3rem;transition:var(--transition-smooth)}
+.feature-icon.cyan{background:rgba(0,229,255,0.12);color:var(--accent-cyan);box-shadow:0 0 20px rgba(0,229,255,0.2)}
+.feature-icon.purple{background:rgba(180,77,255,0.12);color:var(--accent-purple);box-shadow:0 0 20px rgba(180,77,255,0.2)}
+.feature-icon.orange{background:rgba(255,145,0,0.12);color:var(--accent-orange);box-shadow:0 0 20px rgba(255,145,0,0.2)}
+.feature-icon.pink{background:rgba(255,61,113,0.12);color:var(--accent-pink);box-shadow:0 0 20px rgba(255,61,113,0.2)}
+.feature-icon.green{background:rgba(0,230,118,0.12);color:var(--accent-green);box-shadow:0 0 20px rgba(0,230,118,0.2)}
+.feature-icon.yellow{background:rgba(255,215,0,0.12);color:#ffd700;box-shadow:0 0 20px rgba(255,215,0,0.2)}
+.feature-card:hover .feature-icon{transform:scale(1.08)}
+.feature-card h3{font-size:1.2rem;font-weight:800;margin-bottom:0.6rem;color:#fff}
+.feature-card p{font-size:0.9rem;color:var(--text-muted);line-height:1.8}
+.carousel-container{position:relative;max-width:1000px;margin:0 auto;overflow:hidden;padding:0 10px}
+.carousel-track{display:flex;gap:2rem;transition:transform 0.5s ease}
+.course-card{min-width:calc(50% - 1rem);background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-xl);overflow:hidden;transition:var(--transition-smooth);flex-shrink:0;display:flex;flex-direction:column}
+.course-card:hover{transform:translateY(-8px);box-shadow:0 20px 50px rgba(0,0,0,0.5)}
+.course-card-banner{height:160px;position:relative;display:flex;align-items:center;justify-content:center;font-size:3rem;overflow:hidden}
+.course-card-banner.banner-prog{background:linear-gradient(135deg,#0a1a30,#0f2540)}
+.course-card-banner.banner-robo{background:linear-gradient(135deg,#1a0a30,#250f40)}
+.course-card-banner.banner-ai{background:linear-gradient(135deg,#102510,#1a3020)}
+.course-card-banner.banner-game{background:linear-gradient(135deg,#301010,#401a1a)}
+.banner-glow{position:absolute;width:140px;height:140px;border-radius:50%;filter:blur(50px);opacity:0.5}
+.banner-prog .banner-glow{background:var(--accent-cyan);top:-20px;right:-20px}
+.banner-robo .banner-glow{background:var(--accent-purple);top:-20px;left:-20px}
+.banner-ai .banner-glow{background:var(--accent-green);top:-20px;right:-20px}
+.banner-game .banner-glow{background:var(--accent-pink);top:-20px;left:-20px}
+.banner-icon{position:relative;z-index:1}
+.banner-prog .banner-icon{color:var(--accent-cyan);text-shadow:0 0 30px rgba(0,229,255,0.6)}
+.banner-robo .banner-icon{color:var(--accent-purple);text-shadow:0 0 30px rgba(180,77,255,0.6)}
+.banner-ai .banner-icon{color:var(--accent-green);text-shadow:0 0 30px rgba(0,230,118,0.6)}
+.banner-game .banner-icon{color:var(--accent-pink);text-shadow:0 0 30px rgba(255,61,113,0.6)}
+.course-card-body{padding:1.5rem 1.6rem 1.8rem;display:flex;flex-direction:column;flex-grow:1}
+.course-card-body h3{font-size:1.3rem;font-weight:800;margin-bottom:0.6rem;color:#fff}
+.course-card-body p{font-size:0.9rem;color:var(--text-muted);margin-bottom:1rem;line-height:1.8;flex-grow:1}
+.course-tags{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1.4rem}
+.course-tag{font-size:0.78rem;padding:0.3rem 0.8rem;border-radius:50px;font-weight:600;background:rgba(255,255,255,0.04);color:var(--text-secondary);border:1px solid var(--border-subtle)}
+.carousel-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(15,15,42,0.8);border:1px solid var(--border-glow);color:#fff;width:44px;height:44px;border-radius:50%;font-size:1.2rem;cursor:pointer;z-index:2;transition:var(--transition-fast);backdrop-filter:blur(10px)}
+.carousel-btn:hover{background:var(--accent-cyan);border-color:var(--accent-cyan);box-shadow:var(--shadow-cyan)}
+.carousel-btn.prev{right:-5px}.carousel-btn.next{left:-5px}
+.stats-section{background:var(--bg-secondary);border-top:1px solid var(--border-subtle);border-bottom:1px solid var(--border-subtle)}
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:2rem;text-align:center}
+.stat-item .stat-number{font-size:2.8rem;font-weight:900;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.stat-item .stat-desc{font-size:0.95rem;color:var(--text-muted);font-weight:500;margin-top:0.3rem}
+.testimonials-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.8rem}
+.testimonial-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:2rem;transition:var(--transition-smooth);position:relative}
+.testimonial-card:hover{transform:translateY(-5px);border-color:var(--accent-cyan);box-shadow:0 10px 30px rgba(0,0,0,0.4)}
+.testimonial-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));display:flex;align-items:center;justify-content:center;font-weight:700;color:#fff;margin-bottom:1rem;font-size:1.2rem}
+.testimonial-stars{color:var(--accent-yellow);margin-bottom:0.8rem}
+.testimonial-text{font-size:0.95rem;color:var(--text-secondary);line-height:1.8;margin-bottom:1rem}
+.testimonial-author{font-weight:700;color:#fff;font-size:0.9rem}
+.instructors-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:2rem}
+.instructor-card{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:2rem 1.5rem;text-align:center;transition:var(--transition-smooth)}
+.instructor-card:hover{transform:translateY(-6px);border-color:var(--accent-purple);box-shadow:0 15px 35px rgba(0,0,0,0.5)}
+.instructor-img{width:90px;height:90px;border-radius:50%;margin:0 auto 1rem;background:linear-gradient(135deg,var(--accent-purple),var(--accent-pink));display:flex;align-items:center;justify-content:center;font-size:2.2rem;color:#fff;box-shadow:0 0 25px rgba(180,77,255,0.3)}
+.instructor-card h4{font-size:1.1rem;font-weight:800;color:#fff;margin-bottom:0.3rem}
+.instructor-card .role{font-size:0.85rem;color:var(--accent-cyan);margin-bottom:0.8rem}
+.instructor-card .bio{font-size:0.85rem;color:var(--text-muted);line-height:1.8}
+.faq-list{max-width:800px;margin:0 auto}
+.faq-item{background:var(--bg-card);border:1px solid var(--border-subtle);border-radius:var(--radius-md);margin-bottom:1rem;overflow:hidden;transition:var(--transition-fast)}
+.faq-item:hover{border-color:var(--accent-cyan)}
+.faq-question{width:100%;text-align:right;padding:1.2rem 1.5rem;background:none;border:none;color:#fff;font-family:var(--font-vazir);font-size:1rem;font-weight:700;cursor:pointer;display:flex;justify-content:space-between;align-items:center;transition:var(--transition-fast)}
+.faq-question i{transition:transform 0.3s;color:var(--accent-cyan)}
+.faq-item.active .faq-question i{transform:rotate(180deg)}
+.faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease;padding:0 1.5rem;color:var(--text-muted);font-size:0.9rem;line-height:1.8}
+.faq-item.active .faq-answer{max-height:300px;padding-bottom:1.2rem}
+.cta-section{background:var(--bg-secondary);border-radius:var(--radius-xl);max-width:900px;margin:0 auto;padding:3rem 2rem;position:relative;overflow:hidden}
+.cta-card{text-align:center;position:relative;z-index:1}
+.cta-card h2{font-size:2rem;font-weight:900;color:#fff;margin-bottom:1rem}
+.cta-card p{color:var(--text-muted);max-width:550px;margin:0 auto 2rem;font-size:1rem;line-height:1.9}
+.footer{background:var(--bg-secondary);border-top:1px solid var(--border-subtle);padding:2.5rem 1.5rem;text-align:center;position:relative;z-index:1}
+.footer .container{display:flex;flex-direction:column;gap:1rem;align-items:center}
+.footer-logo{font-size:1.5rem;font-weight:900;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.footer-socials{display:flex;gap:1rem}
+.footer-socials a{display:inline-flex;align-items:center;justify-content:center;width:42px;height:42px;border-radius:50%;background:rgba(255,255,255,0.04);color:var(--text-secondary);font-size:1.1rem;text-decoration:none;transition:var(--transition-smooth);border:1px solid var(--border-subtle)}
+.footer-socials a:hover{background:rgba(0,229,255,0.12);color:var(--accent-cyan);border-color:var(--accent-cyan);box-shadow:0 0 20px rgba(0,229,255,0.25);transform:translateY(-3px)}
+.footer-copy{font-size:0.85rem;color:var(--text-muted)}
+.scroll-top-btn{position:fixed;bottom:30px;right:30px;width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));color:#fff;border:none;cursor:pointer;font-size:1.2rem;z-index:999;display:flex;align-items:center;justify-content:center;box-shadow:0 5px 25px rgba(0,229,255,0.35);transition:var(--transition-smooth);opacity:0;visibility:hidden;transform:translateY(20px)}
+.scroll-top-btn.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.scroll-top-btn:hover{transform:translateY(-4px);box-shadow:0 8px 35px rgba(0,229,255,0.5)}
+@media (max-width:992px){.hero .container{grid-template-columns:1fr;text-align:center}.hero-text{align-items:center}.hero-subtitle{max-width:100%}.hero-title{font-size:2.4rem}.hero-stats{justify-content:center}.hero-visual{order:-1}.hero-robot-wrapper{width:240px;height:240px}.robot-art{width:150px;height:190px}.robot-head{width:80px;height:72px}.robot-body{width:56px;height:64px}.robot-eye{width:12px;height:12px;top:24px}.robot-eye.left{left:18px}.robot-eye.right{right:18px}.robot-mouth{bottom:14px;width:24px;height:5px}.robot-antenna{height:14px;top:-14px}.robot-arm{width:10px;height:38px;top:24px}.robot-arm.left-arm{left:-14px}.robot-arm.right-arm{right:-14px}.robot-hover-ring{width:200px;height:200px}.robot-hover-ring-2{width:230px;height:230px}.robot-orb.orb-1{width:80px;height:80px}.robot-orb.orb-2{width:60px;height:60px}.robot-orb.orb-3{width:50px;height:50px}.course-card{min-width:80%}}
+@media (max-width:768px){.nav-links{position:fixed;top:0;right:-100%;width:75%;max-width:320px;height:100vh;background:rgba(15,15,42,0.97);backdrop-filter:blur(30px);flex-direction:column;justify-content:center;gap:0.5rem;transition:right var(--transition-smooth);z-index:1000;padding:2rem}.nav-links.active{right:0}.hamburger{display:flex}.hero-title{font-size:2rem}.section-title{font-size:1.8rem}.features-grid{grid-template-columns:1fr 1fr}.stats-grid{grid-template-columns:1fr 1fr;gap:1.5rem}.carousel-btn.prev{right:0}.carousel-btn.next{left:0}}
+@media (max-width:480px){.features-grid{grid-template-columns:1fr}.stats-grid{grid-template-columns:1fr}.hero-buttons{flex-direction:column;width:100%}.hero-buttons .btn{width:100%;text-align:center;justify-content:center}.hero-stats{gap:1rem;flex-wrap:wrap}.course-card{min-width:100%}.instructors-grid{grid-template-columns:1fr}.testimonials-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="particles-container" id="particlesContainer"></div>
+<div class="grid-bg"></div>
+
+<nav class="navbar" id="navbar">
+<div class="container">
+<a href="index.html" class="nav-logo">
+<span class="logo-icon"><i class="fa-solid fa-code"></i></span>
+کدنو
+</a>
+<ul class="nav-links" id="navLinks">
+<li><a href="#features" class="nav-link">ویژگی‌ها</a></li>
+<li><a href="courses.html" class="nav-link">دوره‌ها</a></li>
+<li><a href="#instructors" class="nav-link">مربیان</a></li>
+<li><a href="#faq" class="nav-link">سوالات</a></li>
+<li><a href="#contact" class="nav-cta">ثبت‌نام</a></li>
+</ul>
+<button class="hamburger" id="hamburger" aria-label="منو"><span></span><span></span><span></span></button>
+</div>
+</nav>
+
+<section class="hero" id="hero">
+<div class="container">
+<div class="hero-text">
+<div class="hero-badge"><i class="fa-solid fa-bolt"></i> شروع ترم جدید از مهر ۱۴۰۴</div>
+<h1 class="hero-title">
+<span class="static-text">آینده‌ات رو با</span>
+<span class="dynamic-text" id="typingText"></span>
+<span class="static-text">بساز!</span>
+</h1>
+<p class="hero-subtitle">کلاس‌های حضوری و آنلاین برنامه‌نویسی و رباتیک برای کودکان، نوجوانان و بزرگسالان. از صفر تا ساخت پروژه‌های واقعی، با جدیدترین متدهای آموزشی و مربیان حرفه‌ای.</p>
+<div class="hero-buttons">
+<a href="#contact" class="btn btn-primary"><i class="fa-solid fa-rocket"></i> ثبت‌نام رایگان</a>
+<a href="courses.html" class="btn btn-outline"><i class="fa-solid fa-eye"></i> مشاهده دوره‌ها</a>
+</div>
+<div class="hero-stats">
+<div class="hero-stat"><span class="stat-num">۵۰۰+</span><span class="stat-label">دانش‌آموخته</span></div>
+<div class="hero-stat"><span class="stat-num">۳۰+</span><span class="stat-label">دوره تخصصی</span></div>
+<div class="hero-stat"><span class="stat-num">۸</span><span class="stat-label">سال تجربه</span></div>
+</div>
+</div>
+<div class="hero-visual" id="heroVisual">
+<div class="hero-robot-wrapper">
+<div class="robot-orb orb-1"></div>
+<div class="robot-orb orb-2"></div>
+<div class="robot-orb orb-3"></div>
+<div class="robot-hover-ring"></div>
+<div class="robot-hover-ring-2"></div>
+<div class="robot-art">
+<div class="robot-head">
+<div class="robot-antenna"></div>
+<div class="robot-eye left" id="leftEye"></div>
+<div class="robot-eye right" id="rightEye"></div>
+<div class="robot-mouth"></div>
+</div>
+<div class="robot-body">
+<div class="robot-body-inner"></div>
+<div class="robot-arm left-arm"></div>
+<div class="robot-arm right-arm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="section" id="features">
+<div class="container">
+<div class="section-header">
+<span class="section-label">چرا کدنو؟</span>
+<h2 class="section-title">یه تجربه یادگیری متفاوت</h2>
+<p class="section-subtitle">ما فقط درس نمی‌دیم، مسیر موفقیت رو همراهش می‌ایم.</p>
+</div>
+<div class="features-grid">
+<div class="feature-card reveal-item"><div class="feature-icon cyan"><i class="fa-solid fa-laptop-code"></i></div><h3>پروژه‌محور</h3><p>از همون جلسه اول کد می‌زنی و پروژه می‌سازی. یادگیری واقعی با عمل.</p></div>
+<div class="feature-card reveal-item"><div class="feature-icon purple"><i class="fa-solid fa-robot"></i></div><h3>رباتیک واقعی</h3><p>با آردوینو، ESP و قطعات واقعی کار می‌کنی. رباتتو خودت می‌سازی و برنامش می‌دی.</p></div>
+<div class="feature-card reveal-item"><div class="feature-icon orange"><i class="fa-solid fa-user-graduate"></i></div><h3>مربیان حرفه‌ای</h3><p>مربیان با تجربه صنعتی و آکادمیک که عاشق تدریس و انتقال دانش هستن.</p></div>
+<div class="feature-card reveal-item"><div class="feature-icon pink"><i class="fa-solid fa-certificate"></i></div><h3>مدرک معتبر</h3><p>در پایان دوره مدرک قابل‌استناد دریافت می‌کنی که به رزومه‌ات قوت می‌ده.</p></div>
+<div class="feature-card reveal-item"><div class="feature-icon green"><i class="fa-solid fa-display"></i></div><h3>کلاس‌های آنلاین و حضوری</h3><p>هر جا که هستی می‌تونی به صورت آنلاین یا حضوری در کلاس‌ها شرکت کنی.</p></div>
+<div class="feature-card reveal-item"><div class="feature-icon yellow"><i class="fa-solid fa-handshake-angle"></i></div><h3>پشتیبانی دائمی</h3><p>حتی بعد از تموم شدن دوره هم تنهات نمی‌زاریم. پشتیبانی و منتورینگ ادامه داره.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="courses">
+<div class="container">
+<div class="section-header">
+<span class="section-label">دوره‌های ما</span>
+<h2 class="section-title">انتخاب مسیر یادگیری</h2>
+<p class="section-subtitle">از مبانی برنامه‌نویسی تا رباتیک پیشرفته، مسیر خودتو انتخاب کن.</p>
+</div>
+<div class="carousel-container">
+<div class="carousel-track" id="courseTrack">
+<div class="course-card">
+<div class="course-card-banner banner-prog"><div class="banner-glow"></div><div class="banner-icon"><i class="fa-solid fa-code"></i></div></div>
+<div class="course-card-body">
+<h3>دوره جامع برنامه‌نویسی</h3>
+<p>از مبانی پایتون و اسکرچ تا طراحی وب پیشرفته با HTML، CSS، JavaScript و React.</p>
+<div class="course-tags"><span class="course-tag">پایتون</span><span class="course-tag">اسکرچ</span><span class="course-tag">توسعه وب</span></div>
+<a href="courses.html" class="btn btn-primary">مشاهده جزئیات <i class="fa-solid fa-arrow-left"></i></a>
+</div>
+</div>
+<div class="course-card">
+<div class="course-card-banner banner-robo"><div class="banner-glow"></div><div class="banner-icon"><i class="fa-solid fa-robot"></i></div></div>
+<div class="course-card-body">
+<h3>دوره جامع رباتیک</h3>
+<p>آشنایی با الکترونیک، آردوینو، سنسورها و موتورها. از ساخت ربات‌های ساده تا ربات‌های هوشمند.</p>
+<div class="course-tags"><span class="course-tag">آردوینو</span><span class="course-tag">الکترونیک</span><span class="course-tag">سنسورها</span></div>
+<a href="courses.html" class="btn btn-primary" style="background:linear-gradient(135deg,var(--accent-purple),var(--accent-pink));box-shadow:var(--shadow-purple);">مشاهده جزئیات <i class="fa-solid fa-arrow-left"></i></a>
+</div>
+</div>
+<div class="course-card">
+<div class="course-card-banner banner-ai"><div class="banner-glow"></div><div class="banner-icon"><i class="fa-solid fa-brain"></i></div></div>
+<div class="course-card-body">
+<h3>هوش مصنوعی و یادگیری ماشین</h3>
+<p>مبانی پایتون، NumPy، Pandas و کتابخانه‌های ML. ورود به دنیای داده‌کاوی و شبکه‌های عصبی.</p>
+<div class="course-tags"><span class="course-tag">پایتون</span><span class="course-tag">TensorFlow</span><span class="course-tag">داده‌کاوی</span></div>
+<a href="courses.html" class="btn btn-primary" style="background:linear-gradient(135deg,var(--accent-green),var(--accent-cyan));box-shadow:0 0 30px rgba(0,230,118,0.3);">مشاهده جزئیات <i class="fa-solid fa-arrow-left"></i></a>
+</div>
+</div>
+<div class="course-card">
+<div class="course-card-banner banner-game"><div class="banner-glow"></div><div class="banner-icon"><i class="fa-solid fa-gamepad"></i></div></div>
+<div class="course-card-body">
+<h3>طراحی و توسعه بازی</h3>
+<p>با موتورهای بازیسازی مانند اسکرچ بازی‌های دوبعدی خلق کن.</p>
+<div class="course-tags"><span class="course-tag">Unity</span><span class="course-tag">C#</span><span class="course-tag">سه‌بعدی</span></div>
+<a href="courses.html" class="btn btn-primary" style="background:linear-gradient(135deg,var(--accent-pink),var(--accent-orange));box-shadow:var(--shadow-pink);">مشاهده جزئیات <i class="fa-solid fa-arrow-left"></i></a>
+</div>
+</div>
+</div>
+<button class="carousel-btn prev" id="coursePrev"><i class="fa-solid fa-chevron-right"></i></button>
+<button class="carousel-btn next" id="courseNext"><i class="fa-solid fa-chevron-left"></i></button>
+</div>
+</div>
+</section>
+
+<section class="section stats-section" id="stats">
+<div class="container">
+<div class="stats-grid">
+<div class="stat-item"><div class="stat-number" data-count="500">0</div><div class="stat-desc">دانش‌آموخته خوشحال</div></div>
+<div class="stat-item"><div class="stat-number" data-count="120">0</div><div class="stat-desc">پروژه موفق</div></div>
+<div class="stat-item"><div class="stat-number" data-count="30">0</div><div class="stat-desc">دوره تخصصی</div></div>
+<div class="stat-item"><div class="stat-number" data-count="8">0</div><div class="stat-desc">سال تجربه</div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="testimonials">
+<div class="container">
+<div class="section-header">
+<span class="section-label">نظرات دانش‌آموختگان</span>
+<h2 class="section-title">ببین دیگران چی می‌گن</h2>
+</div>
+<div class="testimonials-grid">
+<div class="testimonial-card reveal-item"><div class="testimonial-avatar">نیما</div><div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="testimonial-text">بهترین کلاسی بود که تا حالا رفتم. مربیانی با حوصله و الان می‌تونم یه وب‌سایت کامل بزنم.</p><div class="testimonial-author">- نیما، ۱۵ ساله</div></div>
+<div class="testimonial-card reveal-item"><div class="testimonial-avatar">سارینا</div><div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="testimonial-text">رباتیکی رو از صفر شروع کردم و الان ربات تعقیب‌کننده خط رو خودم ساختم. فضای کلاس عالی بود.</p><div class="testimonial-author">- سارینا، ۱۳ ساله</div></div>
+<div class="testimonial-card reveal-item"><div class="testimonial-avatar">آرمین</div><div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div><p class="testimonial-text">پسرم ۸ سالشه و عاشق اسکرچ شده. هر جلسه با شوق میاد. ممنون از تیم حرفه‌ایتون.</p><div class="testimonial-author">- مادر آرمین</div></div>
+<div class="testimonial-card reveal-item"><div class="testimonial-avatar">کیمیا</div><div class="testimonial-stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star-half-stroke"></i></div><p class="testimonial-text">دوره‌های پایتون فوق‌العاده بود. الان یه پروژه ماشین لرنینگ ساختم و برام رزومه قوی شده.</p><div class="testimonial-author">- کیمیا، ۱۷ ساله</div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="instructors">
+<div class="container">
+<div class="section-header">
+<span class="section-label">مربیان ما</span>
+<h2 class="section-title">آشنایی با تیم حرفه‌ای</h2>
+<p class="section-subtitle">هر کدوم از مربیان ما، یه متخصص با تجربه در حوزه خودشون هستن.</p>
+</div>
+<div class="instructors-grid">
+<div class="instructor-card reveal-item"><div class="instructor-img">ش</div><h4>شایان رحیمی</h4><div class="role">مدرس برنامه‌نویسی و هوش مصنوعی</div><p class="bio">۸ سال سابقه تدریس و توسعه نرم‌افزار. متخصص پایتون و یادگیری ماشین.</p></div>
+<div class="instructor-card reveal-item"><div class="instructor-img">م</div><h4>مریم احمدی</h4><div class="role">مدرس رباتیک و الکترونیک</div><p class="bio">فارغ‌التحصیل مهندسی مکاترونیک، مجری چندین پروژه رباتیک صنعتی.</p></div>
+<div class="instructor-card reveal-item"><div class="instructor-img">ک</div><h4>کاوه نادری</h4><div class="role">مدرس توسعه وب و بازی‌سازی</div><p class="bio">۶ سال تجربه در فرانت‌اند و طراحی بازی با Unity. عاشق آموزش خلاقانه.</p></div>
+<div class="instructor-card reveal-item"><div class="instructor-img">ز</div><h4>زهرا کریمی</h4><div class="role">مدرس برنامه‌نویسی کودکان (اسکرچ)</div><p class="bio">متخصص آموزش خلاقانه به کودکان با بازی و سرگرمی. ۵ سال سابقه تدریس در مدارس.</p></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="faq">
+<div class="container">
+<div class="section-header">
+<span class="section-label">سوالات متداول</span>
+<h2 class="section-title">پاسخ به سوالات شما</h2>
+<p class="section-subtitle">هر سوالی داری، اینجا جوابش هست.</p>
+</div>
+<div class="faq-list">
+<div class="faq-item"><button class="faq-question">آیا دوره‌ها سن خاصی داره؟<i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer">دوره‌های ما برای سنین 7 تا 18 سال طراحی شدن. اما بزرگسالان هم می‌تونن در دوره‌های پیشرفته شرکت کنن.</div></div>
+<div class="faq-item"><button class="faq-question">کلاس‌ها به صورت آنلاین برگزار میشه یا حضوری؟<i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer">هم به صورت آنلاین (پلتفرم اختصاصی) و هم حضوری (در تهران و کرج). شما می‌تونید هر کدوم رو که راحت‌تر هستید انتخاب کنید.</div></div>
+<div class="faq-item"><button class="faq-question">آیا به تجهیزات خاصی نیاز دارم؟<i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer">برای دوره‌های برنامه‌نویسی فقط یک کامپیوتر با اینترنت کافیه. برای رباتیک، کیت‌های آموزشی رو ما در اختیارتون می‌زاریم.</div></div>
+<div class="faq-item"><button class="faq-question">شهریه دوره‌ها چقدره؟<i class="fa-solid fa-chevron-down"></i></button><div class="faq-answer">شهریه بسته به نوع دوره و تعداد جلسات متفاوته. برای اطلاع دقیق از قیمت‌ها، فرم زیر رو پر کنید تا مشاورین ما با شما تماس بگیرن.</div></div>
+</div>
+</div>
+</section>
+
+<section class="section" id="contact">
+<div class="container">
+<div class="cta-section">
+<div class="cta-card">
+<h2>آماده‌ای شروع کنی؟</h2>
+<p>همین امروز برای یه جلسه مشاوره رایگان ثبت‌نام کن. مسیر یادگیری‌ات رو با هم طراحی می‌کنیم.</p>
+<h2 style="background:linear-gradient(135deg,var(--accent-cyan),var(--accent-purple));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">09193552113</h2>
+</div>
+</div>
+</div>
+</section>
+
+<footer class="footer">
+<div class="container">
+<div class="footer-logo"><i class="fa-solid fa-code"></i> کدنو</div>
+<div class="footer-socials">
+<a href="#" aria-label="اینستاگرام"><i class="fa-brands fa-instagram"></i></a>
+<a href="#" aria-label="تلگرام"><i class="fa-brands fa-telegram"></i></a>
+<a href="#" aria-label="واتس‌اپ"><i class="fa-brands fa-whatsapp"></i></a>
+<a href="#" aria-label="یوتیوب"><i class="fa-brands fa-youtube"></i></a>
+<a href="#" aria-label="گیت‌هاب"><i class="fa-brands fa-github"></i></a>
+</div>
+<p class="footer-copy">© ۱۴۰۴ کدنو — تمامی حقوق محفوظ است. ساخته‌شده با <span style="color:var(--accent-pink);">❤️</span> برای آینده‌سازان ایران</p>
+</div>
+</footer>
+
+<button class="scroll-top-btn" id="scrollTopBtn" aria-label="بازگشت به بالا"><i class="fa-solid fa-chevron-up"></i></button>
+
+<script>
+(function(){
+'use strict';
+const navbar=document.getElementById('navbar');
+const hamburger=document.getElementById('hamburger');
+const navLinks=document.getElementById('navLinks');
+const scrollTopBtn=document.getElementById('scrollTopBtn');
+const particlesContainer=document.getElementById('particlesContainer');
+const statNumbers=document.querySelectorAll('.stat-number[data-count]');
+const navLinkItems=document.querySelectorAll('.nav-link');
+const sectionHeaders=document.querySelectorAll('.section-header');
+const revealItems=document.querySelectorAll('.reveal-item');
+const courseTrack=document.getElementById('courseTrack');
+const coursePrev=document.getElementById('coursePrev');
+const courseNext=document.getElementById('courseNext');
+const leftEye=document.getElementById('leftEye');
+const rightEye=document.getElementById('rightEye');
+const heroVisual=document.getElementById('heroVisual');
+const typingText=document.getElementById('typingText');
+const faqItems=document.querySelectorAll('.faq-item');
+
+function createParticles(){
+const colors=['#00e5ff','#b44dff','#ff3d71','#ff9100','#00e676','#ffd700','#ffffff'];
+const fragment=document.createDocumentFragment();
+for(let i=0;i<50;i++){const p=document.createElement('div');p.classList.add('particle');p.style.left=Math.random()*100+'%';p.style.width=(Math.random()*6+2)+'px';p.style.height=p.style.width;p.style.backgroundColor=colors[Math.floor(Math.random()*colors.length)];p.style.animationDuration=(Math.random()*12+8)+'s';p.style.animationDelay=Math.random()*10+'s';p.style.boxShadow='0 0 '+(Math.random()*8+4)+'px '+p.style.backgroundColor;fragment.appendChild(p);}
+for(let i=0;i<40;i++){const s=document.createElement('div');s.classList.add('star-dot');s.style.left=Math.random()*100+'%';s.style.top=Math.random()*100+'%';s.style.animationDuration=(Math.random()*4+2)+'s';s.style.animationDelay=Math.random()*4+'s';s.style.opacity=Math.random()*0.5+0.2;fragment.appendChild(s);}
+particlesContainer.appendChild(fragment);
+}
+
+function handleScroll(){
+const scrollY=window.pageYOffset;
+if(scrollY>50){navbar.classList.add('scrolled');}else{navbar.classList.remove('scrolled');}
+if(scrollY>600){scrollTopBtn.classList.add('visible');}else{scrollTopBtn.classList.remove('visible');}
+}
+
+function toggleMenu(){hamburger.classList.toggle('active');navLinks.classList.toggle('active');document.body.style.overflow=navLinks.classList.contains('active')?'hidden':'';}
+function closeMenu(){hamburger.classList.remove('active');navLinks.classList.remove('active');document.body.style.overflow='';}
+
+function smoothTo(e){
+const href=this.getAttribute('href');
+if(href&&href.startsWith('#')){
+e.preventDefault();
+const target=document.querySelector(href);
+if(target){closeMenu();const offset=target.getBoundingClientRect().top+window.pageYOffset-80;window.scrollTo({top:offset,behavior:'smooth'});}
+}
+}
+
+let statsAnimated=false;
+function animateStats(){
+if(statsAnimated)return;
+const statsSection=document.getElementById('stats');
+if(!statsSection)return;
+const rect=statsSection.getBoundingClientRect();
+const wh=window.innerHeight;
+if(rect.top<wh-100&&rect.bottom>0){
+statsAnimated=true;
+statNumbers.forEach(el=>{
+const target=parseInt(el.getAttribute('data-count'),10);
+if(isNaN(target))return;
+const duration=2000;
+const start=performance.now();
+function update(now){
+const elapsed=now-start;
+const progress=Math.min(elapsed/duration,1);
+const current=Math.floor(progress*target);
+el.textContent=current.toLocaleString('fa-IR')+'+';
+if(progress<1){requestAnimationFrame(update);}else{el.textContent=target.toLocaleString('fa-IR')+'+';}
+}
+requestAnimationFrame(update);
+});
+}
+}
+
+function revealOnScroll(){
+const elements=[...sectionHeaders,...revealItems];
+elements.forEach(el=>{
+const rect=el.getBoundingClientRect();
+const wh=window.innerHeight;
+if(rect.top<wh-80&&rect.bottom>0){el.classList.add('revealed');}
+});
+}
+
+let carouselIndex=0;
+let carouselItems=[];
+function initCarousel(){
+if(!courseTrack)return;
+carouselItems=courseTrack.querySelectorAll('.course-card');
+if(carouselItems.length===0)return;
+updateCarousel();
+}
+function updateCarousel(){
+if(carouselItems.length===0)return;
+const cardWidth=carouselItems[0].offsetWidth+32;
+const maxIndex=Math.max(0,carouselItems.length-Math.floor(courseTrack.parentElement.offsetWidth/cardWidth));
+if(carouselIndex<0)carouselIndex=0;
+if(carouselIndex>maxIndex)carouselIndex=maxIndex;
+const offset=carouselIndex*cardWidth;
+courseTrack.style.transform='translateX('+offset+'px)';
+}
+if(coursePrev&&courseNext){
+coursePrev.addEventListener('click',()=>{carouselIndex=Math.max(0,carouselIndex-1);updateCarousel();});
+courseNext.addEventListener('click',()=>{carouselIndex=Math.min(carouselItems.length-1,carouselIndex+1);updateCarousel();});
+window.addEventListener('resize',updateCarousel);
+}
+
+function initEyeFollow(){
+if(!leftEye||!rightEye||!heroVisual)return;
+const robotWrapper=heroVisual.querySelector('.hero-robot-wrapper');
+if(!robotWrapper)return;
+document.addEventListener('mousemove',(e)=>{
+const rect=robotWrapper.getBoundingClientRect();
+const centerX=rect.left+rect.width/2;
+const centerY=rect.top+rect.height/2;
+const deltaX=(e.clientX-centerX)/(rect.width/2);
+const deltaY=(e.clientY-centerY)/(rect.height/2);
+const moveX=Math.max(-4,Math.min(4,deltaX*3));
+const moveY=Math.max(-3,Math.min(3,deltaY*2));
+const transform='translate('+moveX+'px, '+moveY+'px)';
+leftEye.style.transform=transform;
+rightEye.style.transform=transform;
+});
+}
+
+function initTyping(){
+if(!typingText)return;
+const words=['تکنولوژی','برنامه‌نویسی','رباتیک','هوش مصنوعی','بازی‌سازی','الکترونیک'];
+let wordIndex=0,charIndex=0,isDeleting=false;
+const speed=120,delay=2000;
+function type(){
+const currentWord=words[wordIndex];
+if(!isDeleting){
+if(charIndex<=currentWord.length){typingText.textContent=currentWord.substring(0,charIndex);charIndex++;setTimeout(type,speed);}
+else{isDeleting=true;setTimeout(type,delay);}
+}else{
+if(charIndex>=0){typingText.textContent=currentWord.substring(0,charIndex);charIndex--;setTimeout(type,speed/2);}
+else{isDeleting=false;charIndex=0;wordIndex=(wordIndex+1)%words.length;setTimeout(type,300);}
+}
+}
+type();
+}
+
+function initFAQ(){
+faqItems.forEach(item=>{
+const btn=item.querySelector('.faq-question');
+btn.addEventListener('click',()=>{
+const isActive=item.classList.contains('active');
+faqItems.forEach(i=>i.classList.remove('active'));
+if(!isActive){item.classList.add('active');}
+});
+});
+}
+
+window.addEventListener('scroll',()=>{handleScroll();animateStats();revealOnScroll();},{passive:true});
+hamburger.addEventListener('click',toggleMenu);
+navLinkItems.forEach(link=>link.addEventListener('click',smoothTo));
+document.addEventListener('click',(e)=>{
+if(navLinks.classList.contains('active')&&!navLinks.contains(e.target)&&!hamburger.contains(e.target)){closeMenu();}
+});
+scrollTopBtn.addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+
+createParticles();
+handleScroll();
+animateStats();
+revealOnScroll();
+initCarousel();
+initEyeFollow();
+initTyping();
+initFAQ();
+
+window.addEventListener('load',()=>{revealOnScroll();updateCarousel();});
+})();
+</script>
+</body>
+</html>
