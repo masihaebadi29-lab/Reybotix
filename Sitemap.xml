@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+
+    <!-- ============================================================ -->
+    <!-- صفحه اصلی - بالاترین اولویت                                  -->
+    <!-- ============================================================ -->
+    <url>
+        <loc>https://reybotix.ir/</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>daily</changefreq>
+        <priority>1.0</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/og-home.jpg</image:loc>
+            <image:title>Reybotix - آموزشگاه تخصصی رباتیک و برنامه‌نویسی</image:title>
+            <image:caption>آینده را با رباتیک و کدنویسی بسازید</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================================ -->
+    <!-- صفحه لیست دوره‌ها - دومین اولویت                              -->
+    <!-- ============================================================ -->
+    <url>
+        <loc>https://reybotix.ir/courses</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/og-courses.jpg</image:loc>
+            <image:title>دوره‌های آموزشی Reybotix</image:title>
+        </image:image>
+    </url>
+
+    <!-- ============================================================ -->
+    <!-- صفحات اختصاصی دوره‌ها                                          -->
+    <!-- ============================================================ -->
+
+    <!-- اسکرچ - Scratch -->
+    <url>
+        <loc>https://reybotix.ir/courses/scratch</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/scratch.jpg</image:loc>
+            <image:title>دوره آموزش اسکرچ برای کودکان</image:title>
+            <image:caption>تفکر برنامه‌نویسی بصری برای کودکان ۸ تا ۱۲ سال</image:caption>
+        </image:image>
+    </url>
+
+    <!-- اپ اینونتور - App Inventor -->
+    <url>
+        <loc>https://reybotix.ir/courses/appinventor</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/appinventor.jpg</image:loc>
+            <image:title>دوره آموزش App Inventor</image:title>
+            <image:caption>ساخت اپلیکیشن اندروید برای نوجوانان</image:caption>
+        </image:image>
+    </url>
+
+    <!-- پایتون - Python -->
+    <url>
+        <loc>https://reybotix.ir/courses/python</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/python.jpg</image:loc>
+            <image:title>دوره آموزش پایتون</image:title>
+            <image:caption>کدنویسی واقعی و حرفه‌ای با پایتون</image:caption>
+        </image:image>
+    </url>
+
+    <!-- HTML/CSS -->
+    <url>
+        <loc>https://reybotix.ir/courses/html-css</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/html-css.jpg</image:loc>
+            <image:title>دوره آموزش HTML و CSS</image:title>
+            <image:caption>طراحی و ساخت وب‌سایت</image:caption>
+        </image:image>
+    </url>
+
+    <!-- GitHub -->
+    <url>
+        <loc>https://reybotix.ir/courses/github</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/github.jpg</image:loc>
+            <image:title>دوره آموزش GitHub</image:title>
+            <image:caption>مدیریت نسخه و کار تیمی</image:caption>
+        </image:image>
+    </url>
+
+    <!-- Vercel -->
+    <url>
+        <loc>https://reybotix.ir/courses/vercel</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/vercel.jpg</image:loc>
+            <image:title>دوره آموزش Vercel</image:title>
+            <image:caption>انتشار و میزبانی وب‌سایت</image:caption>
+        </image:image>
+    </url>
+
+    <!-- آردوینو - Arduino -->
+    <url>
+        <loc>https://reybotix.ir/courses/arduino</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.95</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/arduino.jpg</image:loc>
+            <image:title>دوره آموزش آردوینو</image:title>
+            <image:caption>ورود به دنیای سخت‌افزار و رباتیک</image:caption>
+        </image:image>
+    </url>
+
+    <!-- C/Proteus -->
+    <url>
+        <loc>https://reybotix.ir/courses/c-proteus</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.9</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/courses/c-proteus.jpg</image:loc>
+            <image:title>دوره آموزش C و Proteus</image:title>
+            <image:caption>مهندسی میکروکنترلر و شبیه‌سازی</image:caption>
+        </image:image>
+    </url>
+
+    <!-- ============================================================ -->
+    <!-- صفحات اصلی ثابت                                              -->
+    <!-- ============================================================ -->
+
+    <!-- درباره ما -->
+    <url>
+        <loc>https://reybotix.ir/about</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/og-about.jpg</image:loc>
+            <image:title>درباره Reybotix</image:title>
+            <image:caption>داستان، تیم و ماموریت ما</image:caption>
+        </image:image>
+    </url>
+
+    <!-- تماس با ما -->
+    <url>
+        <loc>https://reybotix.ir/contact</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.85</priority>
+        <image:image>
+            <image:loc>https://reybotix.ir/images/og-contact.jpg</image:loc>
+            <image:title>تماس با Reybotix</image:title>
+        </image:image>
+    </url>
+
+    <!-- ============================================================ -->
+    <!-- صفحات حقوقی - اولویت پایین                                    -->
+    <!-- ============================================================ -->
+
+    <!-- قوانین و مقررات -->
+    <url>
+        <loc>https://reybotix.ir/terms</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <!-- حریم خصوصی -->
+    <url>
+        <loc>https://reybotix.ir/privacy</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.4</priority>
+    </url>
+
+    <!-- ============================================================ -->
+    <!-- صفحات آینده - برای فعال‌سازی از کامنت خارج کنید                -->
+    <!-- ============================================================ -->
+
+    <!--
+    <url>
+        <loc>https://reybotix.ir/blog</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/blog/why-kids-should-learn-robotics</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/blog/best-programming-language-for-teens</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/projects</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.85</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/instructors</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/testimonials</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/events</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.75</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/faq</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <url>
+        <loc>https://reybotix.ir/enroll</loc>
+        <lastmod>2026-09-23T10:00:00+03:30</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    -->
+
+</urlset>
