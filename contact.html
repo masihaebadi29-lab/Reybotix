@@ -1,0 +1,1431 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- ===== SEO Meta Tags ===== -->
+    <title>تماس با ما | Reybotix - آموزشگاه رباتیک و برنامه‌نویسی</title>
+    <meta name="description" content="با Reybotix تماس بگیرید. مشاوره رایگان برای انتخاب دوره مناسب فرزندتان. تماس تلفنی، واتساپ، فرم تماس آنلاین. ساعت پاسخگویی: شنبه تا پنجشنبه ۷ تا ۲۱.">
+    <meta name="keywords" content="تماس با Reybotix, شماره تماس آموزشگاه رباتیک, مشاوره رایگان رباتیک, واتساپ Reybotix, ارتباط با آموزشگاه برنامه نویسی">
+    <meta name="author" content="Reybotix">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://reybotix.ir/contact">
+
+    <!-- ===== Open Graph ===== -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reybotix.ir/contact">
+    <meta property="og:title" content="تماس با ما | Reybotix">
+    <meta property="og:description" content="با Reybotix تماس بگیرید. مشاوره رایگان برای انتخاب دوره مناسب.">
+    <meta property="og:image" content="https://reybotix.ir/og-contact.jpg">
+    <meta property="og:locale" content="fa_IR">
+
+    <!-- ===== Favicon ===== -->
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🤖</text></svg>">
+
+    <!-- ===== Fonts ===== -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- ===== Schema.org ===== -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ContactPage",
+      "name": "تماس با Reybotix",
+      "url": "https://reybotix.ir/contact",
+      "mainEntity": {
+        "@type": "EducationalOrganization",
+        "name": "Reybotix",
+        "telephone": "+98-919-355-2113",
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "telephone": "+98-919-355-2113",
+          "contactType": "customer service",
+          "availableLanguage": "Persian",
+          "hoursAvailable": {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"],
+            "opens": "07:00",
+            "closes": "21:00"
+          }
+        }
+      }
+    }
+    </script>
+
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --blue-pale: #e8f2fc;
+            --blue-soft: #d4e7fa;
+            --blue-light: #b8d8f5;
+            --blue-mid: #8bb9e0;
+            --blue-deep: #3a7ca5;
+            --blue-dark: #1f4e6f;
+            --white: #ffffff;
+            --white-soft: #f9fcff;
+            --shadow: 0 8px 24px rgba(0, 60, 120, 0.06);
+            --shadow-hover: 0 12px 28px rgba(0, 80, 150, 0.12);
+            --text: #1e2b3c;
+            --text-light: #4e6277;
+            --accent: #ff6b6b;
+            --whatsapp: #25d366;
+            --success: #00b894;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Vazirmatn', Tahoma, sans-serif;
+            background: var(--white);
+            color: var(--text);
+            line-height: 1.8;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
+
+        /* ===== TOP BAR ===== */
+        .top-bar {
+            background: var(--blue-dark);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+            text-align: center;
+        }
+
+        .top-bar a {
+            color: var(--blue-light);
+            text-decoration: none;
+            margin: 0 8px;
+        }
+
+        .top-bar a:hover { color: white; }
+
+        /* ===== HEADER ===== */
+        header.main-header {
+            background: var(--white);
+            box-shadow: 0 2px 16px rgba(150, 190, 230, 0.2);
+            padding: 14px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 1px solid var(--blue-pale);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-weight: 800;
+            font-size: 1.6rem;
+            color: var(--blue-dark);
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: var(--blue-pale);
+            border-radius: 14px;
+            padding: 8px 10px;
+            font-size: 1.6rem;
+            border: 1px solid var(--blue-soft);
+        }
+
+        .logo span { color: var(--blue-deep); }
+
+        nav.main-nav ul {
+            display: flex;
+            list-style: none;
+            gap: 26px;
+            align-items: center;
+        }
+
+        nav.main-nav a {
+            text-decoration: none;
+            color: var(--blue-dark);
+            font-weight: 500;
+            font-size: 1rem;
+            transition: color 0.2s;
+            padding-bottom: 4px;
+            border-bottom: 2px solid transparent;
+        }
+
+        nav.main-nav a:hover,
+        nav.main-nav a.active {
+            color: var(--blue-deep);
+            border-bottom-color: var(--blue-mid);
+        }
+
+        .btn-primary {
+            background: var(--blue-deep);
+            color: white;
+            border: none;
+            padding: 10px 26px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
+            box-shadow: 0 4px 12px rgba(58, 124, 165, 0.3);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-primary:hover {
+            background: var(--blue-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 18px rgba(31, 78, 111, 0.25);
+        }
+
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: white;
+            border: none;
+            padding: 14px 32px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1.02rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+        }
+
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(37, 211, 102, 0.5);
+        }
+
+        .btn-outline {
+            background: transparent;
+            border: 1.5px solid var(--blue-mid);
+            color: var(--blue-deep);
+            padding: 10px 26px;
+            border-radius: 40px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .btn-outline:hover {
+            background: var(--blue-pale);
+            border-color: var(--blue-deep);
+            transform: translateY(-2px);
+        }
+
+        /* ===== PAGE HEADER ===== */
+        .page-header {
+            background: linear-gradient(135deg, #ffffff 0%, var(--blue-pale) 100%);
+            padding: 60px 0 80px;
+            border-bottom: 1px solid var(--blue-soft);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -100px; left: -80px;
+            width: 350px; height: 350px;
+            background: radial-gradient(circle, rgba(184, 216, 245, 0.35) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-header::after {
+            content: '';
+            position: absolute;
+            bottom: -120px; right: -100px;
+            width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(139, 185, 224, 0.25) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .page-header-content { position: relative; z-index: 2; }
+
+        .breadcrumb {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--white);
+            color: var(--blue-deep);
+            padding: 8px 22px;
+            border-radius: 40px;
+            font-size: 0.88rem;
+            font-weight: 500;
+            margin-bottom: 20px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--blue-soft);
+        }
+
+        .breadcrumb a {
+            color: var(--blue-deep);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .breadcrumb a:hover { color: var(--blue-dark); }
+        .breadcrumb .sep { color: var(--blue-mid); }
+
+        .page-header h1 {
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 16px;
+            line-height: 1.3;
+        }
+
+        .page-header h1 span {
+            background: linear-gradient(135deg, var(--blue-deep), #5a9bc9);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .page-header p {
+            font-size: 1.15rem;
+            color: var(--text-light);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* ===== SECTIONS ===== */
+        .section { padding: 70px 0; }
+        .section-alt { background: var(--white-soft); }
+
+        /* ===== CONTACT CARDS ===== */
+        .contact-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .contact-card {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 32px 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--blue-pale);
+            text-align: center;
+            transition: all 0.3s;
+            position: relative;
+            overflow: hidden;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0; right: 0;
+            width: 100%; height: 5px;
+            background: linear-gradient(90deg, var(--blue-deep), var(--blue-light));
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.4s;
+        }
+
+        .contact-card:hover::before { transform: scaleX(1); }
+
+        .contact-card:hover {
+            transform: translateY(-6px);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--blue-light);
+        }
+
+        .contact-card-icon {
+            width: 80px; height: 80px;
+            background: var(--blue-pale);
+            border-radius: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.4rem;
+            margin: 0 auto 20px;
+            transition: all 0.3s;
+        }
+
+        .contact-card:hover .contact-card-icon {
+            background: var(--blue-soft);
+            transform: scale(1.08) rotate(-5deg);
+        }
+
+        .contact-card.whatsapp .contact-card-icon {
+            background: rgba(37, 211, 102, 0.12);
+        }
+
+        .contact-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .contact-card .value {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--blue-deep);
+            margin-bottom: 8px;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .contact-card .desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            line-height: 1.7;
+        }
+
+        /* ===== MAIN GRID (Form + Info) ===== */
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1.3fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* ===== FORM ===== */
+        .form-wrapper {
+            background: var(--white);
+            border-radius: 28px;
+            padding: 40px 36px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--blue-pale);
+        }
+
+        .form-header {
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed var(--blue-pale);
+        }
+
+        .form-header h2 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 8px;
+        }
+
+        .form-header p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-bottom: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--blue-dark);
+            font-size: 0.92rem;
+            margin-bottom: 8px;
+        }
+
+        .form-group label .required {
+            color: var(--accent);
+            margin-right: 4px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 13px 18px;
+            border: 1.5px solid var(--blue-soft);
+            border-radius: 14px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text);
+            background: var(--white-soft);
+            transition: all 0.2s;
+            outline: none;
+        }
+
+        .form-control:focus {
+            border-color: var(--blue-deep);
+            background: var(--white);
+            box-shadow: 0 0 0 4px var(--blue-pale);
+        }
+
+        .form-control::placeholder {
+            color: var(--text-light);
+            opacity: 0.6;
+        }
+
+        textarea.form-control {
+            resize: vertical;
+            min-height: 130px;
+            line-height: 1.8;
+        }
+
+        select.form-control {
+            cursor: pointer;
+            appearance: none;
+            background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%233a7ca5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+            background-repeat: no-repeat;
+            background-position: left 16px center;
+            background-size: 18px;
+            padding-left: 46px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: linear-gradient(135deg, var(--blue-deep), #4a90b8);
+            color: white;
+            border: none;
+            padding: 16px;
+            border-radius: 14px;
+            font-family: 'Vazirmatn', sans-serif;
+            font-weight: 700;
+            font-size: 1.05rem;
+            cursor: pointer;
+            transition: all 0.25s;
+            box-shadow: 0 6px 16px rgba(58, 124, 165, 0.3);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            background: linear-gradient(135deg, var(--blue-dark), var(--blue-deep));
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(31, 78, 111, 0.3);
+        }
+
+        .submit-btn:active { transform: translateY(0); }
+
+        .form-note {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            text-align: center;
+            margin-top: 14px;
+            line-height: 1.7;
+        }
+
+        /* Success Message */
+        .form-success {
+            display: none;
+            background: linear-gradient(135deg, rgba(0, 184, 148, 0.1), rgba(0, 184, 148, 0.05));
+            border: 1.5px solid var(--success);
+            border-radius: 20px;
+            padding: 32px 24px;
+            text-align: center;
+        }
+
+        .form-success.show { display: block; animation: fadeIn 0.4s; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .form-success .success-icon {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        .form-success h3 {
+            color: var(--success);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .form-success p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* ===== INFO SIDEBAR ===== */
+        .info-sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+            position: sticky;
+            top: 100px;
+        }
+
+        .info-box {
+            background: var(--white);
+            border-radius: 24px;
+            padding: 28px 26px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--blue-pale);
+        }
+
+        .info-box h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 18px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--blue-pale);
+        }
+
+        .info-box h3 .icon {
+            background: var(--blue-pale);
+            width: 38px; height: 38px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--blue-pale);
+            font-size: 0.92rem;
+        }
+
+        .info-list li:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .info-list .item-icon {
+            font-size: 1.2rem;
+            flex-shrink: 0;
+            width: 24px;
+            text-align: center;
+        }
+
+        .info-list .item-content { flex: 1; }
+
+        .info-list .item-label {
+            color: var(--text-light);
+            font-size: 0.82rem;
+            display: block;
+            margin-bottom: 2px;
+        }
+
+        .info-list .item-value {
+            color: var(--blue-dark);
+            font-weight: 700;
+            font-size: 0.95rem;
+        }
+
+        .info-list .item-value a {
+            color: var(--blue-deep);
+            text-decoration: none;
+            transition: color 0.2s;
+            direction: ltr;
+            display: inline-block;
+        }
+
+        .info-list .item-value a:hover { color: var(--blue-dark); }
+
+        /* ===== HOURS BOX ===== */
+        .hours-box {
+            background: linear-gradient(135deg, var(--blue-pale), var(--blue-soft));
+            border-radius: 24px;
+            padding: 26px 24px;
+            border: 1px solid var(--blue-light);
+            text-align: center;
+        }
+
+        .hours-box .hours-icon {
+            width: 60px; height: 60px;
+            background: var(--white);
+            border-radius: 18px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            margin: 0 auto 14px;
+            box-shadow: 0 6px 16px rgba(58, 124, 165, 0.15);
+        }
+
+        .hours-box h3 {
+            font-size: 1.1rem;
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .hours-box .hours-value {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: var(--blue-deep);
+            display: block;
+            margin-bottom: 6px;
+        }
+
+        .hours-box .hours-note {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        /* ===== QUICK ACTIONS ===== */
+        .quick-actions {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .quick-actions .btn-whatsapp,
+        .quick-actions .btn-primary {
+            width: 100%;
+            justify-content: center;
+            padding: 14px;
+        }
+
+        /* ===== FAQ MINI ===== */
+        .faq-mini {
+            margin-top: 70px;
+            text-align: center;
+        }
+
+        .faq-mini h2 {
+            font-size: 1.8rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 12px;
+        }
+
+        .faq-mini h2 span { color: var(--blue-deep); }
+
+        .faq-mini > p {
+            color: var(--text-light);
+            margin-bottom: 40px;
+        }
+
+        .faq-mini-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            text-align: right;
+        }
+
+        .faq-mini-item {
+            background: var(--white);
+            border-radius: 20px;
+            padding: 24px;
+            box-shadow: var(--shadow);
+            border: 1px solid var(--blue-pale);
+            transition: all 0.3s;
+        }
+
+        .faq-mini-item:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .faq-mini-item .q-icon {
+            width: 42px; height: 42px;
+            background: var(--blue-pale);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            margin-bottom: 14px;
+        }
+
+        .faq-mini-item h4 {
+            font-size: 1rem;
+            color: var(--blue-dark);
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .faq-mini-item p {
+            color: var(--text-light);
+            font-size: 0.88rem;
+            line-height: 1.8;
+        }
+
+        /* ===== CTA ===== */
+        .cta-section { padding: 80px 0; background: var(--white); }
+
+        .cta-box {
+            background: linear-gradient(120deg, var(--blue-pale), #f0f9ff);
+            border-radius: 60px;
+            padding: 60px 40px;
+            text-align: center;
+            border: 1px solid var(--blue-soft);
+            box-shadow: 0 20px 30px -15px rgba(58, 124, 165, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '🤖';
+            position: absolute;
+            font-size: 160px;
+            opacity: 0.08;
+            bottom: -40px; left: -20px;
+            transform: rotate(-15deg);
+            pointer-events: none;
+        }
+
+        .cta-box h2 {
+            font-size: 2.1rem;
+            font-weight: 800;
+            color: var(--blue-dark);
+            margin-bottom: 16px;
+            position: relative;
+        }
+
+        .cta-box p {
+            font-size: 1.15rem;
+            color: #3d5a73;
+            margin-bottom: 30px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            position: relative;
+        }
+
+        .cta-actions {
+            display: flex;
+            gap: 14px;
+            justify-content: center;
+            flex-wrap: wrap;
+            position: relative;
+        }
+
+        /* ===== FOOTER ===== */
+        footer.site-footer {
+            background: var(--blue-dark);
+            color: #d0e2f0;
+            padding: 60px 0 20px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1.2fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.4rem;
+            font-weight: 800;
+            color: white;
+            margin-bottom: 16px;
+        }
+
+        .footer-brand .logo-icon {
+            background: rgba(255,255,255,0.1);
+            border-radius: 12px;
+            padding: 6px 8px;
+            font-size: 1.4rem;
+            border: 1px solid rgba(255,255,255,0.15);
+        }
+
+        .footer-brand span { color: var(--blue-light); }
+
+        .footer-desc {
+            font-size: 0.88rem;
+            line-height: 1.9;
+            color: #a8c4dc;
+            margin-bottom: 20px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            font-size: 1rem;
+            margin-bottom: 18px;
+            font-weight: 700;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h4::after {
+            content: '';
+            position: absolute;
+            bottom: 0; right: 0;
+            width: 30px; height: 2px;
+            background: var(--blue-mid);
+            border-radius: 2px;
+        }
+
+        .footer-col ul { list-style: none; }
+        .footer-col ul li { margin-bottom: 10px; }
+
+        .footer-col ul a {
+            color: #a8c4dc;
+            text-decoration: none;
+            font-size: 0.88rem;
+            transition: color 0.2s, padding-right 0.2s;
+            display: inline-block;
+        }
+
+        .footer-col ul a:hover { color: white; padding-right: 5px; }
+
+        .footer-contact { font-size: 0.88rem; color: #a8c4dc; line-height: 2; }
+
+        .footer-contact .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-bottom: 8px;
+        }
+
+        .footer-contact a {
+            color: #a8c4dc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover { color: white; }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 28px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            font-size: 0.85rem;
+            color: #8ba8c4;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 12px;
+            margin-top: 16px;
+        }
+
+        .social-link {
+            width: 38px; height: 38px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1rem;
+            transition: all 0.2s;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .social-link:hover {
+            background: var(--blue-deep);
+            transform: translateY(-3px);
+        }
+
+        /* ===== FLOATING WHATSAPP ===== */
+        .floating-wa {
+            position: fixed;
+            bottom: 24px;
+            left: 24px;
+            width: 60px; height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.8rem;
+            box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            text-decoration: none;
+            transition: all 0.3s;
+            animation: pulse 2s infinite;
+        }
+
+        .floating-wa:hover { transform: scale(1.1); }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0.5); }
+            70% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 18px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4), 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 992px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .main-grid { grid-template-columns: 1fr; gap: 30px; }
+            .info-sidebar { position: static; }
+        }
+
+        @media (max-width: 900px) {
+            .header-inner { flex-direction: column; gap: 14px; }
+            nav.main-nav ul { gap: 18px; flex-wrap: wrap; justify-content: center; }
+            .page-header h1 { font-size: 2.2rem; }
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 0 16px; }
+            .section { padding: 45px 0; }
+            .page-header h1 { font-size: 1.8rem; }
+            .page-header p { font-size: 1rem; }
+            .form-wrapper { padding: 28px 22px; }
+            .form-row { grid-template-columns: 1fr; }
+            .cta-box { padding: 40px 20px; }
+            .cta-box h2 { font-size: 1.6rem; }
+            .footer-grid { grid-template-columns: 1fr; gap: 30px; }
+            .contact-cards { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 480px) {
+            .page-header { padding: 40px 0 60px; }
+            .page-header h1 { font-size: 1.5rem; }
+            .btn-primary, .btn-outline, .btn-whatsapp { padding: 9px 18px; font-size: 0.88rem; }
+            .floating-wa { width: 52px; height: 52px; font-size: 1.5rem; bottom: 16px; left: 16px; }
+            .form-wrapper { padding: 24px 18px; }
+        }
+
+        ::selection { background: var(--blue-light); color: var(--blue-dark); }
+    </style>
+</head>
+<body>
+
+<!-- ===== TOP BAR ===== -->
+<div class="top-bar">
+    📞 مشاوره رایگان: <a href="tel:+989193552113">۰۹۱۹۳۵۵۲۱۱۳</a>
+</div>
+
+<!-- ===== HEADER ===== -->
+<header class="main-header">
+    <div class="container header-inner">
+        <a href="index.html" class="logo">
+            <span class="logo-icon">🤖</span>
+            <div>Rey<span>botix</span></div>
+        </a>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">خانه</a></li>
+                <li><a href="courses.html">دوره‌ها</a></li>
+                <li><a href="about.html">درباره ما</a></li>
+                <li><a href="index.html#faq">سوالات متداول</a></li>
+                <li><a href="contact.html" class="active">تماس</a></li>
+            </ul>
+        </nav>
+        <div>
+            <a href="tel:+989193552113" class="btn-primary">📞 تماس با ما</a>
+        </div>
+    </div>
+</header>
+
+<main>
+
+<!-- ===== PAGE HEADER ===== -->
+<section class="page-header">
+    <div class="container page-header-content">
+        <div class="breadcrumb">
+            <a href="index.html">خانه</a>
+            <span class="sep">›</span>
+            <span>تماس با ما</span>
+        </div>
+        <h1>با <span>Reybotix</span> در تماس باشید</h1>
+        <p>سوالی دارید؟ نیاز به مشاوره دارید؟ ما آماده پاسخگویی به شما هستیم</p>
+    </div>
+</section>
+
+<!-- ===== CONTACT CARDS ===== -->
+<section class="section">
+    <div class="container">
+
+        <div class="contact-cards">
+            <a href="tel:+989193552113" class="contact-card">
+                <div class="contact-card-icon">📞</div>
+                <h3>تماس تلفنی</h3>
+                <div class="value">۰۹۱۹۳۵۵۲۱۱۳</div>
+                <p class="desc">پاسخگویی سریع به سوالات شما در ساعات کاری</p>
+            </a>
+
+            <a href="https://wa.me/989193552113" target="_blank" class="contact-card whatsapp">
+                <div class="contact-card-icon">💬</div>
+                <h3>واتساپ</h3>
+                <div class="value">۰۹۱۹۳۵۵۲۱۱۳</div>
+                <p class="desc">گفتگوی آنلاین و دریافت مشاوره سریع</p>
+            </a>
+
+            <a href="#contact-form" class="contact-card">
+                <div class="contact-card-icon">✉️</div>
+                <h3>فرم تماس</h3>
+                <div class="value" style="font-size: 0.95rem;">ارسال پیام آنلاین</div>
+                <p class="desc">پیام خود را ثبت کنید، ما با شما تماس می‌گیریم</p>
+            </a>
+        </div>
+
+        <!-- ===== MAIN GRID ===== -->
+        <div class="main-grid">
+
+            <!-- ===== FORM ===== -->
+            <div class="form-wrapper" id="contact-form">
+                <div class="form-header">
+                    <h2>✉️ پیام خود را بفرستید</h2>
+                    <p>فرم زیر را پر کنید و در اسرع وقت با شما تماس خواهیم گرفت</p>
+                </div>
+
+                <form id="contactForm" onsubmit="handleSubmit(event)">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">نام و نام خانوادگی <span class="required">*</span></label>
+                            <input type="text" id="name" name="name" class="form-control" placeholder="مثلاً: علی محمدی" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">شماره تماس <span class="required">*</span></label>
+                            <input type="tel" id="phone" name="phone" class="form-control" placeholder="۰۹۱۲۳۴۵۶۷۸۹" required>
+                        </div>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="email">ایمیل (اختیاری)</label>
+                            <input type="email" id="email" name="email" class="form-control" placeholder="example@email.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">موضوع <span class="required">*</span></label>
+                            <select id="subject" name="subject" class="form-control" required>
+                                <option value="">انتخاب کنید...</option>
+                                <option value="course-info">اطلاعات درباره دوره‌ها</option>
+                                <option value="pricing">قیمت و شرایط پرداخت</option>
+                                <option value="schedule">زمان‌بندی کلاس‌ها</option>
+                                <option value="consultation">درخواست مشاوره</option>
+                                <option value="registration">ثبت‌نام</option>
+                                <option value="technical">پشتیبانی فنی</option>
+                                <option value="other">سایر موارد</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="child-age">سن فرزند شما (اختیاری)</label>
+                        <input type="text" id="child-age" name="child-age" class="form-control" placeholder="مثلاً: ۱۲ سال">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">متن پیام <span class="required">*</span></label>
+                        <textarea id="message" name="message" class="form-control" placeholder="پیام خود را اینجا بنویسید..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">
+                        📤 ارسال پیام
+                    </button>
+                    <p class="form-note">
+                        با ارسال این فرم، با <a href="#" style="color: var(--blue-deep); text-decoration: none;">قوانین حریم خصوصی</a> موافقت می‌کنید.
+                    </p>
+                </form>
+
+                <!-- Success Message -->
+                <div class="form-success" id="formSuccess">
+                    <span class="success-icon">✅</span>
+                    <h3>پیام شما با موفقیت ارسال شد!</h3>
+                    <p>با تشکر از تماس شما. کارشناسان Reybotix در اسرع وقت با شما تماس خواهند گرفت.</p>
+                </div>
+            </div>
+
+            <!-- ===== INFO SIDEBAR ===== -->
+            <aside class="info-sidebar">
+
+                <!-- Info Box -->
+                <div class="info-box">
+                    <h3><span class="icon">📋</span> اطلاعات تماس</h3>
+                    <ul class="info-list">
+                        <li>
+                            <span class="item-icon">📞</span>
+                            <div class="item-content">
+                                <span class="item-label">شماره تماس</span>
+                                <span class="item-value"><a href="tel:+989193552113">۰۹۱۹۳۵۵۲۱۱۳</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="item-icon">💬</span>
+                            <div class="item-content">
+                                <span class="item-label">واتساپ</span>
+                                <span class="item-value"><a href="https://wa.me/989193552113">۰۹۱۹۳۵۵۲۱۱۳</a></span>
+                            </div>
+                        </li>
+                        <li>
+                            <span class="item-icon">🕐</span>
+                            <div class="item-content">
+                                <span class="item-label">ساعت پاسخگویی</span>
+                                <span class="item-value">شنبه تا پنجشنبه ۷ تا ۲۱</span>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Hours Box -->
+                <div class="hours-box">
+                    <div class="hours-icon">🕐</div>
+                    <h3>ساعت کاری ما</h3>
+                    <span class="hours-value">۷ تا ۲۱</span>
+                    <p class="hours-note">شنبه تا پنجشنبه</p>
+                    <p class="hours-note" style="margin-top: 6px; color: var(--accent); font-weight: 600;">جمعه‌ها تعطیل</p>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="info-box">
+                    <h3><span class="icon">⚡</span> ارتباط سریع</h3>
+                    <div class="quick-actions">
+                        <a href="https://wa.me/989193552113?text=سلام،%20می‌خواستم%20درباره%20دوره‌های%20Reybotix%20مشاوره%20بگیرم" target="_blank" class="btn-whatsapp">
+                            💬 گفتگو در واتساپ
+                        </a>
+                        <a href="tel:+989193552113" class="btn-primary">
+                            📞 تماس مستقیم
+                        </a>
+                    </div>
+                </div>
+
+            </aside>
+
+        </div>
+
+        <!-- ===== FAQ MINI ===== -->
+        <div class="faq-mini">
+            <h2>قبل از تماس، <span>اینها را بخوانید</span></h2>
+            <p>پاسخ سریع به سوالات پرتکرار شما</p>
+
+            <div class="faq-mini-grid">
+                <div class="faq-mini-item">
+                    <div class="q-icon">💰</div>
+                    <h4>هزینه دوره‌ها چقدره؟</h4>
+                    <p>هزینه هر دوره بستگی به تعداد ترم و نوع آموزش (حضوری/آنلاین) دارد. برای دریافت قیمت دقیق تماس بگیرید.</p>
+                </div>
+                <div class="faq-mini-item">
+                    <div class="q-icon">👶</div>
+                    <h4>فرزندم چند ساله باید باشه؟</h4>
+                    <p>دوره‌های ما از ۷ سال به بالا طراحی شده. برای هر سن، دوره مناسب پیشنهاد می‌دیم.</p>
+                </div>
+                <div class="faq-mini-item">
+                    <div class="q-icon">🏫</div>
+                    <h4>کلاس‌ها حضوری یا آنلاین؟</h4>
+                    <p>هر دو حالت موجوده. می‌تونید بر اساس شرایط خودتون انتخاب کنید.</p>
+                </div>
+                <div class="faq-mini-item">
+                    <div class="q-icon">📅</div>
+                    <h4>زمان شروع دوره‌ها؟</h4>
+                    <p>ترم‌های جدید هر ماه شروع می‌شن. برای اطلاع از تاریخ دقیق تماس بگیرید.</p>
+                </div>
+                <div class="faq-mini-item">
+                    <div class="q-icon">🎁</div>
+                    <h4>تخفیف دارید؟</h4>
+                    <p>برای ثبت‌نام زودهنگام، ثبت‌نام گروهی و معرفی دوستان، تخفیف‌های ویژه‌ای در نظر گرفته شده.</p>
+                </div>
+                <div class="faq-mini-item">
+                    <div class="q-icon">📦</div>
+                    <h4>کیت آموزشی لازمه؟</h4>
+                    <p>برای دوره‌های عملی مثل آردوینو، کیت اختصاصی از طرف آموزشگاه ارائه می‌شه.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="cta-section">
+    <div class="container">
+        <div class="cta-box">
+            <h2>همین حالا با ما تماس بگیرید</h2>
+            <p>مشاوران Reybotix آماده پاسخگویی به سوالات شما و راهنمایی برای انتخاب بهترین مسیر یادگیری هستند</p>
+            <div class="cta-actions">
+                <a href="https://wa.me/989193552113" class="btn-whatsapp">💬 پیام در واتساپ</a>
+                <a href="tel:+989193552113" class="btn-primary">📞 با ما تماس بگیرید</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+</main>
+
+<!-- ===== FOOTER ===== -->
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-brand">
+                    <span class="logo-icon">🤖</span>
+                    <div>Rey<span>botix</span></div>
+                </div>
+                <p class="footer-desc">
+                    آموزشگاه تخصصی Reybotix، پیشرو در آموزش رباتیک، برنامه‌نویسی و طراحی سایت برای کودکان و نوجوانان. ما با آموزش پروژه‌محور و مدرسان متخصص، آینده‌سازان فردا را پرورش می‌دهیم.
+                </p>
+                <div class="social-links">
+                    <a href="#" class="social-link" title="اینستاگرام">📷</a>
+                    <a href="#" class="social-link" title="تلگرام">✈️</a>
+                    <a href="#" class="social-link" title="یوتیوب">▶️</a>
+                    <a href="#" class="social-link" title="لینکدین">💼</a>
+                </div>
+            </div>
+
+            <div class="footer-col">
+                <h4>دوره‌ها</h4>
+                <ul>
+                    <li><a href="course-scratch.html">اسکرچ</a></li>
+                    <li><a href="course-python.html">پایتون</a></li>
+                    <li><a href="course-html.html">HTML / CSS</a></li>
+                    <li><a href="course-arduino.html">آردوینو</a></li>
+                    <li><a href="course-cproteus.html">C / Proteus</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>دسترسی سریع</h4>
+                <ul>
+                    <li><a href="index.html">خانه</a></li>
+                    <li><a href="about.html">درباره ما</a></li>
+                    <li><a href="courses.html">دوره‌ها</a></li>
+                    <li><a href="index.html#faq">سوالات متداول</a></li>
+                    <li><a href="contact.html">تماس</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h4>تماس با ما</h4>
+                <div class="footer-contact">
+                    <div class="contact-item">📞 <a href="tel:+989193552113">۰۹۱۹۳۵۵۲۱۱۳</a></div>
+                    <div class="contact-item">💬 <a href="https://wa.me/989193552113">واتساپ: ۰۹۱۹۳۵۵۲۱۱۳</a></div>
+                    <div class="contact-item">🕐 <span>شنبه تا پنجشنبه ۷ تا ۲۱</span></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            © ۱۴۰۴ Reybotix — تمامی حقوق محفوظ است. طراحی و توسعه با ❤️ در ایران
+        </div>
+    </div>
+</footer>
+
+<!-- ===== FLOATING WHATSAPP ===== -->
+<a href="https://wa.me/989193552113" class="floating-wa" title="مشاوره در واتساپ" aria-label="مشاوره در واتساپ">💬</a>
+
+<script>
+    // ===== Form Submit Handler =====
+    function handleSubmit(event) {
+        event.preventDefault();
+
+        const form = event.target;
+        const formData = new FormData(form);
+
+        // Hide form, show success
+        form.style.display = 'none';
+        document.querySelector('.form-header').style.display = 'none';
+        document.querySelector('.form-note').style.display = 'none';
+        document.getElementById('formSuccess').classList.add('show');
+
+        // ساخت پیام واتساپ از داده‌های فرم
+        const name = formData.get('name');
+        const phone = formData.get('phone');
+        const email = formData.get('email') || 'ندارد';
+        const subject = formData.get('subject');
+        const childAge = formData.get('child-age') || 'نامشخص';
+        const message = formData.get('message');
+
+        // تبدیل subject به متن فارسی
+        const subjectMap = {
+            'course-info': 'اطلاعات درباره دوره‌ها',
+            'pricing': 'قیمت و شرایط پرداخت',
+            'schedule': 'زمان‌بندی کلاس‌ها',
+            'consultation': 'درخواست مشاوره',
+            'registration': 'ثبت‌نام',
+            'technical': 'پشتیبانی فنی',
+            'other': 'سایر موارد'
+        };
+
+        const whatsappMessage = `سلام، من از فرم تماس سایت پیام می‌فرستم:
+
+👤 نام: ${name}
+📞 تلفن: ${phone}
+📧 ایمیل: ${email}
+📌 موضوع: ${subjectMap[subject] || subject}
+👶 سن فرزند: ${childAge}
+
+📝 پیام:
+${message}
+
+---
+ارسال شده از صفحه تماس Reybotix`;
+
+        // Optional: بعد از ۲ ثانیه ریدایرکت به واتساپ
+        // (اگر می‌خواید کاربر مستقیم به واتساپ بره، خط زیر رو فعال کنید)
+        // setTimeout(() => {
+        //     window.open(`https://wa.me/989193552113?text=${encodeURIComponent(whatsappMessage)}`, '_blank');
+        // }, 1500);
+
+        // لاگ کردن برای دیباگ (در production حذف کنید)
+        console.log('Form submitted:', { name, phone, email, subject, childAge, message });
+    }
+
+    // ===== Smooth Scroll =====
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+        link.addEventListener('click', e => {
+            const href = link.getAttribute('href');
+            if (href.length > 1 && href !== '#') {
+                const target = document.querySelector(href);
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            }
+        });
+    });
+
+    // ===== Form Validation Enhancement =====
+    const phoneInput = document.getElementById('phone');
+    if (phoneInput) {
+        phoneInput.addEventListener('input', e => {
+            // فقط اعداد فارسی و انگلیسی و کاراکترهای مجاز
+            e.target.value = e.target.value.replace(/[^\d۰-۹\s\-\+\(\)]/g, '');
+        });
+    }
+
+    // ===== Auto-scroll to form when clicking on form card =====
+    const formCard = document.querySelector('.contact-card[href="#contact-form"]');
+    if (formCard) {
+        formCard.addEventListener('click', e => {
+            e.preventDefault();
+            document.getElementById('contact-form').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            setTimeout(() => {
+                document.getElementById('name').focus();
+            }, 500);
+        });
+    }
+</script>
+
+</body>
+</html>
