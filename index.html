@@ -19,55 +19,46 @@
             justify-content: center;
             align-items: center;
             direction: rtl;
+            overflow-x: hidden;
         }
 
-        .container {
+        /* ========= لابی ========= */
+        .container-lobby {
             background: white;
             border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
             padding: 40px;
             max-width: 500px;
             width: 90%;
             text-align: center;
-        }
-
-        .logo {
-            margin-bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
         .logo svg {
             width: 60px;
             height: 60px;
+            fill: #667eea;
         }
 
         h1 {
             color: #333;
             font-size: 28px;
-            margin-bottom: 10px;
         }
 
         .subtitle {
             color: #666;
             font-size: 16px;
-            margin-bottom: 30px;
-        }
-
-        .meeting-form {
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-
-        .input-group {
-            position: relative;
+            margin-bottom: 10px;
         }
 
         .input-group input {
             width: 100%;
             padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
+            border: 2 px solid #e0e0e0;
+            border-radius: 12 px;
+            font-size: 16 px;
             outline: none;
             transition: border-color 0.3s;
         }
@@ -76,15 +67,11 @@
             border-color: #667eea;
         }
 
-        .input-group input::placeholder {
-            color: #999;
-        }
-
         .btn {
-            padding: 15px 30px;
+            padding: 15 px 30 px;
             border: none;
-            border-radius: 12px;
-            font-size: 16px;
+            border-radius: 12 px;
+            font-size: 16 px;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s;
@@ -97,8 +84,8 @@
 
         .btn-primary:hover {
             background: #5a67d8;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+            transform: translateY(-2 px);
+            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
         }
 
         .btn-secondary {
@@ -113,14 +100,13 @@
         .divider {
             display: flex;
             align-items: center;
-            margin: 20px 0;
+            margin: 10px 0;
         }
 
-        .divider::before,
-        .divider::after {
+        .divider::before,.divider::after {
             content: '';
             flex: 1;
-            height: 1px;
+            height: 1 px;
             background: #e0e0e0;
         }
 
@@ -135,57 +121,135 @@
             gap: 10px;
         }
 
-        .join-section input {
-            flex: 1;
-        }
-
         .join-section .btn {
             white-space: nowrap;
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 20px;
-            margin-top: 30px;
-            padding-top: 30px;
-            border-top: 1px solid #e0e0e0;
+        /* ========= اتاق جلسه ========= */
+        .meeting-room {
+            display: none;
+            width: 100%;
+            height: 100vh;
+            background: #202124;
+            color: white;
+            flex-direction: column;
         }
 
-        .feature {
-            text-align: center;
+        .meeting-room.active {
+            display: flex;
         }
 
-        .feature svg {
-            width: 40px;
-            height: 40px;
-            margin-bottom: 10px;
-            fill: #667eea;
+        .room-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            background: #1a1a1a;
         }
 
-        .feature p {
-            color: #666;
+        .room-code {
+            background: #3c4043;
+            padding: 5px 15px;
+            border-radius: 8px;
             font-size: 14px;
         }
 
+        .room-videos {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            padding: 20px;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        .videos-tile {
+            width: 300px;
+            height: 200px;
+            background: #3c4043;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+        }
+
+        .videos-tile.self {
+            border: 3px solid #667eea;
+        }
+
+        .videos-tile p {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .avatar-placeholder {
+            width: 80px;
+            height: 80px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            font-weight: bold;
+            color: white;
+        }
+
+        /* کنترل‌ها */
+        .room-controls {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            padding: 15px;
+            background: #1a1a1a;
+        }
+
+        .control-btn {
+            background: #3c4043;
+            border: none;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .control-btn:hover {
+            background: #5f6368;
+        }
+
+        .control-btn.leave {
+            background: #d93025;
+        }
+
+        .control-btn.leave:hover {
+            background: #c5221f;
+        }
+
+        .hidden {
+            display: none;
+        }
+
         @media (max-width: 480px) {
-            .container {
-                padding: 20px;
-            }
-
-            .features {
-                grid-template-columns: 1fr;
-                gap: 15px;
-            }
-
-            .join-section {
-                flex-direction: column;
+            .video-tile {
+                width: 100%;
+                height: 150 px;
             }
         }
     </style>
 </head>
-<body>
-    <div class="container">
+<boy>
+    <div id="lobby" class="container-lobby">
         <div class="logo">
             <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#667eea"/>
@@ -195,45 +259,62 @@
         <p class="subtitle">یک جلسه جدید ایجاد کنید یا با کد وارد شوید</p>
 
         <div class="meeting-form">
-            <button class="btn btn-primary" onclick="createMeeting()">
-                ایجاد جلسه جدید
-            </button>
+            <button class="btn btn-primary" id="createBtn">ایجاد جلسه جدید</button>
 
             <div class="divider">
                 <span>یا</span>
             </div>
-
+ 
             <div class="join-section">
                 <input type="text" id="meetingCode" placeholder="کد جلسه را وارد کنید" dir="ltr">
-                <button class="btn btn-secondary" onclick="joinMeeting()">
-                    پیوستن
-                </button>
-            </div>
-        </div>
-
-        <div class="features">
-            <div class="feature">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                <p>کیفیت HD</p>
-            </div>
-            <div class="feature">
-                <svg viewBox="0 0 24 24">
-                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 14H4V6h16v12zM6 10h2v2H6v-2zm0 4h8v2H6v-2zm10 0h2v2h-2v-2zm-6-4h8v2h-8v-2z"/>
-                </svg>
-                <p>چت همزمان</p>
-            </div>
-            <div class="feature">
-                <svg viewBox="0 0 24 24">
-                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                </svg>
-                <p>ضبط جلسه</p>
+                <button class="btn btn-secondary" id="joinBtn">پیوستن</button>
             </div>
         </div>
     </div>
 
+    <div id="meetingRoom" class="meeting-room">
+        <div class="room-header">
+            <span class="room-code" id="roomCodeDisplay"></span>
+            <span id="participantCount">۱ نفر</span>
+        </div>
+        <div class="room-videos">
+            <div class="video-tile self">
+                <div class="avatar-placeholder">ش</div>
+                <p>شما</p>
+            </div>
+        </div>
+        <div class="room-controls">
+            <button class="control-btn" title="قطع صدا" id="muteBtn" onclick="toggleMute()">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
+                    <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+                </svg>
+            </button>
+            <button class="control-btn" title="قطع تصویر" id="videoBtn" onclick="toggleVideo()">
+                <svg width="24" height="24" viewBox="0 0 ​24 24" fill="white">
+                    <path d="M18 10.48V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 ​2 2h12c1.1 0 2-.9 2-2v-4.48l4 3.98v-11l-4 3.98z"/>
+                </svg>
+            </button>
+            <button class="control-btn leave" id="leaveBtn" title="خروج">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
+                    <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
     <script>
+        // ورود به اتاق
+        function enterRoom(meetingCode) {
+            document.getElementById('lobby').classList.add('hidden');
+            const room = document.getElementById('meetingRoom');
+            room.classList.add('active');
+            document.getElementById('roomCodeDisplay').textContent = meetingCode;
+            // به‌روزرسانی تعداد شرکت‌کنندگان (شبیه‌سازی)
+            document.getElementById('participantCount').textContent = '۱ نفر';
+            window.history.pushState({}, '', `?meeting=${meetingCode}`);
+        }
+
         function generateMeetingCode() {
             const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
             let code = '';
@@ -243,19 +324,19 @@
             return code;
         }
 
-        function createMeeting() {
+        // ایجاد جلسه
+        document.getElementById('createBtn').adEventListener('click', function() {
             const code = generateMeetingCode();
+            // کپی لینک
             const url = `${window.location.origin}?meeting=${code}`;
-            
-            // Copy to clipboard
-            navigator.clipboard.writeText(code).then(() => {
-                alert(`کد جلسه: ${code}\n\nلینک جلسه: ${url}\n\nکد در کلیپ‌بورد کپی شد.`);
-            }).catch(() => {
-                alert(`کد جلسه: ${code}\n\nلینک جلسه: ${url}`);
-            });
-        }
+            navigator.clipboard.writeText(url).then(() => {
+                // موفقیت
+            }).catch(() => {});
+            enterRoom(code);
+        });
 
-        function joinMeeting() {
+        // پیوستن به جلسه
+        document.getElementById('joinBtn').adEventListener('click', function() {
             const code = document.getElementById('meetingCode').value.trim();
             if (!code) {
                 alert('لطفاً کد جلسه را وارد کنید.');
@@ -265,16 +346,54 @@
                 alert('کد جلسه باید حداقل ۶ کاراکتر باشد.');
                 return;
             }
-            alert(`در حال پیوستن به جلسه با کد: ${code}`);
+            enterRoom(code);
+        });
+
+        // کلید Enter در فیلد کد
+        document.getElementById('meetingCode').adEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                document.getElementById('joinBtn').click();
+            }
+        });
+
+        // خروج از اتاق
+        document.getElementById('leaveBtn').adEventListener('click', function() {
+            if (confirm('آیا مطمئنید می‌خواهید جلسه را ترک کنید؟')) {
+                window.location.href = window.location.origin + window.location.pathname;
+            }
+        });
+
+        // قطع/وصل صدا (شبیه‌سازی)
+        let isMuted = false;
+        function toggleMute() {
+            isMuted = !isMuted;
+            const btn = document.getElementById('muteBtn');
+            if (isMuted) {
+                btn.style.background = '#d93025';
+            } else {
+                btn.style.background = '#3c4043';
+            }
         }
 
-        // Check URL for meeting code on load
-        window.addEventListener('DOMContentLoaded', () => {
+        // قطع/وصل تصویر (شبیه‌سازی)
+        let isVideoOff = false;
+        function toggleVideo() {
+            isVideoOff = !isVideoOff;
+            const btn = document.getElementById('videoBtn');
+            if (isVideoOff) {
+                btn.style.background = '#d93025';
+            } else {
+                btn.style.background = '#3c4043';
+            }
+        }
+
+        // برسی لینک مستقیم
+        window.adEventListener('DOMContentLoaded', () => {
             const urlParams = new URLSearchParams(window.location.search);
             const meetingCode = urlParams.get('meeting');
             if (meetingCode) {
                 document.getElementById('meetingCode').value = meetingCode;
-                alert(`کد جلسه از لینک دریافت شد: ${meetingCode}`);
+                enterRoom(meetingCode);
             }
         });
     </script>
