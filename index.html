@@ -6,7 +6,7 @@
 
     <!-- ===== SEO Meta Tags ===== -->
     <title>Reybotix | آموزشگاه رباتیک، برنامه‌نویسی و طراحی سایت در ایران</title>
-    <meta name="description" content="آموزشگاه Reybotix: دوره‌های تخصصی رباتیک، آردوینو، پایتون، طراحی سایت HTML/CSS، گیت‌هاب و Vercel برای کودکان و نوجوانان. آموزش پروژه‌محور با مدرسان متخصص و گواهی معتبر. همین امروز ثبت‌نام کنید!">
+    <meta name="description" content="آموزشگاه Reybotix: دوره‌های تخصصی رباتیک، آردوینو، پایتون، طراحی سایت HTML/CSS، گیت‌هاب و Vercel برای کودکان و نوجوانان. آموزش پروژه‌محور با مدرسان متخصص. همین امروز تماس بگیرید!">
     <meta name="keywords" content="آموزشگاه رباتیک, آموزش آردوینو, آموزش پایتون, آموزش اسکرچ, آموزش طراحی سایت, آموزش HTML, آموزش CSS, آموزش گیت هاب, آموزش Vercel, کلاس رباتیک کودکان, Reybotix, رباتیک, برنامه نویسی کودکان, آموزش برنامه نویسی نوجوانان">
     <meta name="author" content="Reybotix">
     <meta name="robots" content="index, follow, max-image-preview:large">
@@ -19,7 +19,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://reybotix.ir/">
     <meta property="og:title" content="Reybotix | آموزشگاه رباتیک، برنامه‌نویسی و طراحی سایت">
-    <meta property="og:description" content="دوره‌های تخصصی رباتیک، آردوینو، پایتون، طراحی سایت و Vercel برای کودکان و نوجوانان. آموزش پروژه‌محور با گواهی معتبر.">
+    <meta property="og:description" content="دوره‌های تخصصی رباتیک، آردوینو، پایتون، طراحی سایت و Vercel برای کودکان و نوجوانان. آموزش پروژه‌محور.">
     <meta property="og:image" content="https://reybotix.ir/og-image.jpg">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -57,7 +57,7 @@
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+98-21-12345678",
+        "telephone": "+98-919-355-2113",
         "contactType": "customer service",
         "availableLanguage": "Persian"
       },
@@ -103,8 +103,8 @@
         },
         {
           "@type": "Question",
-          "name": "آیا پس از اتمام دوره گواهی اعطا می‌شود؟",
-          "acceptedAnswer": {"@type": "Answer", "text": "بله، در پایان هر ترم گواهی پایان دوره معتبر اعطا می‌شود."}
+          "name": "آیا کلاس‌ها آنلاین یا حضوری هستند؟",
+          "acceptedAnswer": {"@type": "Answer", "text": "کلاس‌ها به دو صورت حضوری و آنلاین برگزار می‌شوند و ویدیوهای دوره همیشه در دسترس است."}
         }
       ]
     }
@@ -128,6 +128,7 @@
             --text-light: #4e6277;
             --accent: #ff6b6b;
             --success: #00b894;
+            --whatsapp: #25d366;
         }
 
         html { scroll-behavior: smooth; }
@@ -239,12 +240,15 @@
             transition: all 0.2s;
             font-family: 'Vazirmatn', sans-serif;
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .btn-outline:hover {
             background: var(--blue-pale);
             border-color: var(--blue-deep);
+            transform: translateY(-2px);
         }
 
         .btn-primary {
@@ -260,7 +264,9 @@
             font-family: 'Vazirmatn', sans-serif;
             box-shadow: 0 4px 12px rgba(58, 124, 165, 0.3);
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
         }
 
         .btn-primary:hover {
@@ -282,7 +288,9 @@
             font-family: 'Vazirmatn', sans-serif;
             box-shadow: 0 6px 16px rgba(255, 107, 107, 0.35);
             text-decoration: none;
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
         .btn-accent:hover {
@@ -290,24 +298,28 @@
             box-shadow: 0 10px 22px rgba(255, 107, 107, 0.45);
         }
 
-        /* ===== ANNOUNCEMENT BAR ===== */
-        .announcement {
-            background: linear-gradient(90deg, #ff6b6b, #ee5a5a, #ff6b6b);
-            background-size: 200% 100%;
-            animation: gradientMove 3s ease infinite;
+        .btn-whatsapp {
+            background: linear-gradient(135deg, #25d366, #128c7e);
             color: white;
-            padding: 12px 20px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 0.95rem;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 40px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-family: 'Vazirmatn', sans-serif;
+            box-shadow: 0 6px 16px rgba(37, 211, 102, 0.35);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
         }
 
-        @keyframes gradientMove {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
+        .btn-whatsapp:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(37, 211, 102, 0.5);
         }
-
-        .announcement a { color: white; text-decoration: underline; }
 
         /* ===== HERO ===== */
         .hero {
@@ -398,9 +410,7 @@
             border-top: 1px dashed var(--blue-light);
         }
 
-        .stat-item {
-            text-align: center;
-        }
+        .stat-item { text-align: center; }
 
         .stat-item .num {
             font-size: 1.8rem;
@@ -409,10 +419,7 @@
             display: block;
         }
 
-        .stat-item .lbl {
-            font-size: 0.85rem;
-            color: var(--text-light);
-        }
+        .stat-item .lbl { font-size: 0.85rem; color: var(--text-light); }
 
         .hero-image {
             flex: 0.9;
@@ -510,7 +517,7 @@
             box-shadow: 0 4px 12px rgba(58, 124, 165, 0.3);
         }
 
-        /* ===== COURSE CARDS (Preview) ===== */
+        /* ===== COURSE CARDS ===== */
         .courses-preview-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -1270,6 +1277,14 @@
             margin-bottom: 8px;
         }
 
+        .footer-contact a {
+            color: #a8c4dc;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+
+        .footer-contact a:hover { color: white; }
+
         .footer-bottom {
             text-align: center;
             padding-top: 28px;
@@ -1303,7 +1318,7 @@
             transform: translateY(-3px);
         }
 
-        /* ===== WHATSAPP FLOATING BUTTON ===== */
+        /* ===== FLOATING WHATSAPP BUTTON ===== */
         .floating-wa {
             position: fixed;
             bottom: 24px;
@@ -1379,14 +1394,13 @@
             .step { font-size: 0.75rem; padding: 5px 10px; }
             .session-number { width: 32px; height: 32px; min-width: 32px; font-size: 0.82rem; }
             .floating-wa { width: 52px; height: 52px; font-size: 1.5rem; bottom: 16px; left: 16px; }
-            .btn-primary, .btn-outline, .btn-accent { padding: 9px 18px; font-size: 0.88rem; }
+            .btn-primary, .btn-outline, .btn-accent, .btn-whatsapp { padding: 9px 18px; font-size: 0.88rem; }
         }
 
         .table-wrap::-webkit-scrollbar { height: 8px; }
         .table-wrap::-webkit-scrollbar-track { background: var(--blue-pale); }
         .table-wrap::-webkit-scrollbar-thumb { background: var(--blue-mid); border-radius: 10px; }
 
-        /* Selection */
         ::selection { background: var(--blue-light); color: var(--blue-dark); }
     </style>
 </head>
@@ -1394,12 +1408,7 @@
 
 <!-- ===== TOP BAR ===== -->
 <div class="top-bar">
-    📞 مشاوره رایگان: <a href="tel:+982112345678">۰۲۱-۱۲۳۴۵۶۷۸</a> | ✉️ <a href="mailto:info@reybotix.ir">info@reybotix.ir</a>
-</div>
-
-<!-- ===== ANNOUNCEMENT BAR ===== -->
-<div class="announcement">
-    🎉 ثبت‌نام ترم جدید آغاز شد — <a href="#courses">همین حالا جای خود را رزرو کنید!</a> ظرفیت محدود
+    📞 مشاوره رایگان: <a href="tel:+989193552113">۰۹۱۹۳۵۵۲۱۱۳</a>
 </div>
 
 <!-- ===== HEADER ===== -->
@@ -1419,8 +1428,7 @@
             </ul>
         </nav>
         <div class="header-actions">
-            <a href="#" class="btn-outline">ورود</a>
-            <a href="#cta" class="btn-primary">ثبت‌نام</a>
+            <a href="tel:+989193552113" class="btn-primary">📞 تماس با ما</a>
         </div>
     </div>
 </header>
@@ -1439,7 +1447,7 @@
             </p>
             <div class="hero-actions">
                 <a href="#courses" class="btn-accent">🚀 شروع یادگیری</a>
-                <a href="#courses" class="btn-outline">مشاهده دوره‌ها</a>
+                <a href="https://wa.me/989193552113" class="btn-whatsapp">💬 مشاوره واتساپ</a>
             </div>
             <div class="hero-stats">
                 <div class="stat-item"><span class="num">+۱۵۰۰</span><span class="lbl">دانش‌آموز موفق</span></div>
@@ -1588,9 +1596,9 @@
                 <p>ویدیوهای دوره‌ها همیشه در دسترس شماست، با پشتیبانی دائمی.</p>
             </div>
             <div class="feature-item">
-                <span class="feature-icon">🏆</span>
-                <h4>گواهی معتبر</h4>
-                <p>پس از اتمام دوره، گواهی قابل ارائه به بازار کار دریافت کنید.</p>
+                <span class="feature-icon">💬</span>
+                <h4>پشتیبانی مستمر</h4>
+                <p>پاسخگویی سریع به سوالات شما در تمام طول دوره از طریق واتساپ.</p>
             </div>
         </div>
     </div>
@@ -1748,7 +1756,7 @@
                                 <div class="session-item"><div class="session-number">۵</div><div class="session-content"><div class="session-title">پیاده‌سازی مراحل بعدی</div><div class="session-desc">افزودن مراحل، افزایش سختی</div></div></div>
                                 <div class="session-item"><div class="session-number">۶</div><div class="session-content"><div class="session-title">صداگذاری و جلوه‌ها</div><div class="session-desc">موسیقی، جلوه‌های صوتی و بصری</div></div></div>
                                 <div class="session-item"><div class="session-number">۷</div><div class="session-content"><div class="session-title">تست و اشکال‌زدایی</div><div class="session-desc">پیدا کردن باگ‌ها، بهبود عملکرد</div></div></div>
-                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">نمایش بازی، دریافت گواهی پایان دوره</div></div></div>
+                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">نمایش بازی در جمع</div></div></div>
                             </div>
                         </td></tr>
                     </tbody>
@@ -1838,7 +1846,7 @@
                                 <div class="session-item"><div class="session-number">۵</div><div class="session-content"><div class="session-title">ذخیره‌سازی و API</div><div class="session-desc">اتصال به TinyDB یا اینترنت</div></div></div>
                                 <div class="session-item"><div class="session-number">۶</div><div class="session-content"><div class="session-title">تست و اشکال‌زدایی</div><div class="session-desc">تست روی گوشی، رفع باگ</div></div></div>
                                 <div class="session-item"><div class="session-number">۷</div><div class="session-content"><div class="session-title">ساخت APK</div><div class="session-desc">خروجی گرفتن، نصب روی گوشی‌های دیگر</div></div></div>
-                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">نمایش اپ، دریافت گواهی</div></div></div>
+                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">نمایش اپ در جمع</div></div></div>
                             </div>
                         </td></tr>
                     </tbody>
@@ -1944,7 +1952,7 @@
                                 <div class="session-item"><div class="session-number">۵</div><div class="session-content"><div class="session-title">آپلود در GitHub</div><div class="session-desc">ساخت مخزن، commit، push، README</div></div></div>
                                 <div class="session-item"><div class="session-number">۶</div><div class="session-content"><div class="session-title">تست و بهبود</div><div class="session-desc">رفع باگ، بهینه‌سازی کد</div></div></div>
                                 <div class="session-item"><div class="session-number">۷</div><div class="session-content"><div class="session-title">مستندسازی</div><div class="session-desc">نوشتن README، کامنت‌گذاری کد</div></div></div>
-                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">دفاع از پروژه، دریافت گواهی</div></div></div>
+                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">دفاع از پروژه</div></div></div>
                             </div>
                         </td></tr>
                     </tbody>
@@ -2240,7 +2248,7 @@
                                 <div class="session-item"><div class="session-number">۵</div><div class="session-content"><div class="session-title">خط‌یاب (اختیاری)</div><div class="session-desc">سنسور IR، دنبال کردن خط</div></div></div>
                                 <div class="session-item"><div class="session-number">۶</div><div class="session-content"><div class="session-title">تست و تنظیم</div><div class="session-desc">کالیبراسیون سنسورها، تنظیم سرعت</div></div></div>
                                 <div class="session-item"><div class="session-number">۷</div><div class="session-content"><div class="session-title">مستندسازی</div><div class="session-desc">فیلم‌برداری، نوشتن مستندات پروژه</div></div></div>
-                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">مسابقه ربات‌ها، دریافت گواهی</div></div></div>
+                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">ارائه نهایی</div><div class="session-desc">مسابقه ربات‌ها</div></div></div>
                             </div>
                         </td></tr>
                     </tbody>
@@ -2362,7 +2370,7 @@
                                 <div class="session-item"><div class="session-number">۵</div><div class="session-content"><div class="session-title">تست و اشکال‌زدایی</div><div class="session-desc">رفع باگ، بهینه‌سازی</div></div></div>
                                 <div class="session-item"><div class="session-number">۶</div><div class="session-content"><div class="session-title">پیاده‌سازی سخت‌افزاری</div><div class="session-desc">ساخت مدار واقعی روی بردبورد</div></div></div>
                                 <div class="session-item"><div class="session-number">۷</div><div class="session-content"><div class="session-title">مستندسازی</div><div class="session-desc">نوشتن گزارش، شماتیک نهایی</div></div></div>
-                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">دفاع از پروژه</div><div class="session-desc">ارائه در جمع، دریافت گواهی</div></div></div>
+                                <div class="session-item"><div class="session-number">۸</div><div class="session-content"><div class="session-title">دفاع از پروژه</div><div class="session-desc">ارائه در جمع</div></div></div>
                             </div>
                         </td></tr>
                     </tbody>
@@ -2482,12 +2490,12 @@
         <div class="tips-grid">
             <div class="tip-card"><div class="tip-icon">⏱️</div><p>مدت هر جلسه <strong>۶۰ دقیقه</strong> — هفته‌ای ۱ جلسه</p></div>
             <div class="tip-card"><div class="tip-icon">🎯</div><p>هر ترم یک <strong>پروژه نهایی</strong> دارد که باید ارائه شود</p></div>
-            <div class="tip-card"><div class="tip-icon">🏅</div><p>در پایان هر ترم <strong>گواهی پایان دوره</strong> اعطا می‌شود</p></div>
-            <div class="tip-card"><div class="tip-icon">🔗</div><p>پیش‌نیاز هر ترم را باید <strong>قبل از ثبت‌نام</strong> گذرانده باشید</p></div>
+            <div class="tip-card"><div class="tip-icon">🔗</div><p>پیش‌نیاز هر ترم را باید <strong>قبل از شروع</strong> گذرانده باشید</p></div>
             <div class="tip-card"><div class="tip-icon">🎪</div><p>هر ۲ ترم یک <strong>نمایشگاه پروژه‌ها</strong> برگزار می‌شود</p></div>
             <div class="tip-card"><div class="tip-icon">📦</div><p>برای دوره‌های آردوینو و C، <strong>کیت اختصاصی</strong> ارائه می‌شود</p></div>
             <div class="tip-card"><div class="tip-icon">🐙</div><p>از ترم <strong>G1</strong> به بعد، همه پروژه‌ها در GitHub آپلود شوند</p></div>
             <div class="tip-card"><div class="tip-icon">▲</div><p>پروژه وب نهایی در <strong>Vercel</strong> به صورت آنلاین منتشر می‌شود</p></div>
+            <div class="tip-card"><div class="tip-icon">💬</div><p>پشتیبانی مستمر از طریق <strong>واتساپ</strong> در تمام طول دوره</p></div>
         </div>
     </div>
 </section>
@@ -2509,10 +2517,6 @@
                 <div class="faq-answer">مدت هر جلسه ۶۰ دقیقه است و هر ترم شامل ۸ جلسه هفتگی می‌باشد. کلاس‌ها به صورت هفته‌ای یک جلسه برگزار می‌شوند.</div>
             </div>
             <div class="faq-item">
-                <div class="faq-question">آیا پس از اتمام دوره گواهی اعطا می‌شود؟</div>
-                <div class="faq-answer">بله، در پایان هر ترم و پس از ارائه پروژه نهایی، گواهی پایان دوره معتبر از طرف آموزشگاه Reybotix اعطا می‌شود که قابل ارائه به بازار کار است.</div>
-            </div>
-            <div class="faq-item">
                 <div class="faq-question">آیا برای دوره‌های آردوینو و C نیاز به خرید کیت است؟</div>
                 <div class="faq-answer">بله، برای دوره‌های عملی مانند آردوینو و C/Proteus، کیت اختصاصی شامل برد، سنسورها و قطعات الکترونیکی از طرف آموزشگاه ارائه می‌شود.</div>
             </div>
@@ -2524,6 +2528,10 @@
                 <div class="faq-question">پیش‌نیاز ورود به هر دوره چیست؟</div>
                 <div class="faq-answer">هر دوره پیش‌نیاز مخصوص خود را دارد. برای مثال، پایتون پیش‌نیاز ندارد اما GitHub نیاز به گذراندن پایتون مقدماتی (P1) دارد. جدول پیش‌نیازها در هر دوره مشخص شده است.</div>
             </div>
+            <div class="faq-item">
+                <div class="faq-question">چگونه می‌توانم برای مشاوره و ثبت‌نام اقدام کنم؟</div>
+                <div class="faq-answer">می‌توانید از طریق دکمه واتساپ در همین صفحه یا با شماره <strong>۰۹۱۹۳۵۵۲۱۱۳</strong> تماس بگیرید تا مشاوران ما شما را راهنمایی کنند.</div>
+            </div>
         </div>
     </div>
 </section>
@@ -2533,10 +2541,10 @@
     <div class="container">
         <div class="cta-box">
             <h2>آماده شروع سفر با Reybotix هستید؟</h2>
-            <p>همین امروز ثبت‌نام کنید و به جمع بیش از ۱۵۰۰ دانش‌آموز موفق بپیوندید. ظرفیت هر ترم محدود است!</p>
+            <p>همین امروز با ما تماس بگیرید و مسیر یادگیری خود را آغاز کنید. مشاوره کاملاً رایگان است!</p>
             <div class="cta-actions">
-                <a href="#courses" class="btn-accent">🚀 ثبت‌نام در دوره‌ها</a>
-                <a href="tel:+982112345678" class="btn-outline">📞 مشاوره رایگان</a>
+                <a href="https://wa.me/989193552113" class="btn-whatsapp">💬 پیام در واتساپ</a>
+                <a href="tel:+989193552113" class="btn-accent">📞 با ما تماس بگیرید</a>
             </div>
         </div>
     </div>
@@ -2582,17 +2590,16 @@
                     <li><a href="#courses">دوره‌ها</a></li>
                     <li><a href="#paths">مسیر یادگیری</a></li>
                     <li><a href="#faq">سوالات متداول</a></li>
-                    <li><a href="#cta">ثبت‌نام</a></li>
+                    <li><a href="#cta">تماس</a></li>
                 </ul>
             </div>
 
             <div class="footer-col">
                 <h4>تماس با ما</h4>
                 <div class="footer-contact">
-                    <div class="contact-item">📞 <span>۰۲۱-۱۲۳۴۵۶۷۸</span></div>
-                    <div class="contact-item">✉️ <span>info@reybotix.ir</span></div>
-                    <div class="contact-item">📍 <span>تهران، خیابان آزادی</span></div>
-                    <div class="contact-item">🕐 <span>شنبه تا پنجشنبه ۹ تا ۲۱</span></div>
+                    <div class="contact-item">📞 <a href="tel:+989193552113">۰۹۱۹۳۵۵۲۱۱۳</a></div>
+                    <div class="contact-item">💬 <a href="https://wa.me/989193552113">واتساپ: ۰۹۱۹۳۵۵۲۱۱۳</a></div>
+                    <div class="contact-item">🕐 <span>شنبه تا پنجشنبه ۷ تا ۲۱</span></div>
                 </div>
             </div>
         </div>
@@ -2604,7 +2611,7 @@
 </footer>
 
 <!-- ===== FLOATING WHATSAPP BUTTON ===== -->
-<a href="https://wa.me/989121234567" class="floating-wa" title="مشاوره در واتساپ" aria-label="مشاوره در واتساپ">💬</a>
+<a href="https://wa.me/989193552113" class="floating-wa" title="مشاوره در واتساپ" aria-label="مشاوره در واتساپ">💬</a>
 
 <script>
     // ===== Toggle Course Term Details =====
@@ -2655,7 +2662,7 @@
         });
     });
 
-    // ===== Smooth Scroll for Nav (fallback) =====
+    // ===== Smooth Scroll =====
     document.querySelectorAll('a[href^="#"]').forEach(link => {
         link.addEventListener('click', e => {
             const href = link.getAttribute('href');
