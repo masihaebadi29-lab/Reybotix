@@ -1,389 +1,1853 @@
 <!DOCTYPE html>
 <html lang="fa" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Google Meet Clone</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meet — ویدئو کنفرانس</title>
 
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            direction: rtl;
-            overflow-x: hidden;
-        }
+<style>
+*{
+    box-sizing:border-box;
+    margin:0;
+    padding:0;
+}
 
-        .container-lobby {
-            background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
-            padding: 40px;
-            max-width: 500px;
-            width: 90%;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
-        }
+:root{
+    --bg:#202124;
+    --panel:#292a2d;
+    --panel2:#303134;
+    --hover:#3c4043;
+    --text:#f1f3f4;
+    --muted:#9aa0a6;
+    --blue:#8ab4f8;
+    --red:#ea4335;
+    --green:#34a853;
+    --border:rgba(255,255,255,.08);
+}
 
-        .logo svg {
-            width: 60px;
-            height: 60px;
-            fill: #667eea;
-        }
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:
+        "Segoe UI",
+        Tahoma,
+        Arial,
+        sans-serif;
+    background:var(--bg);
+    color:var(--text);
+}
 
-        h1 {
-            color: #333;
-            font-size: 28px;
-        }
+button,
+input,
+textarea{
+    font-family:inherit;
+}
 
-        .subtitle {
-            color: #666;
-            font-size: 16px;
-            margin-bottom: 10px;
-        }
+/* ================= LOBBY ================= */
 
-        .input-group input {
-            width: 100%;
-            padding: 15px 20px;
-            border: 2px solid #e0e0e0;
-            border-radius: 12px;
-            font-size: 16px;
-            outline: none;
-            transition: border-color 0.3s;
-        }
+#lobby{
+    position:fixed;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:
+        radial-gradient(circle at 20% 20%,rgba(66,133,244,.12),transparent 35%),
+        radial-gradient(circle at 80% 80%,rgba(52,168,83,.10),transparent 35%),
+        var(--bg);
+    z-index:100;
+}
 
-        .input-group input:focus {
-            border-color: #667eea;
-        }
+.lobby-card{
+    width:min(92%,900px);
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:50px;
+    align-items:center;
+}
 
-        .btn {
-            padding: 15px 30px;
-            border: none;
-            border-radius: 12px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-        }
+.lobby-info h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
 
-        .btn-primary {
-            background: #667eea;
-            color: white;
-        }
+.lobby-info h1 span{
+    color:#8ab4f8;
+}
 
-        .btn-primary:hover {
-            background: #5a67d8;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(102,126,234,0.4);
-        }
+.lobby-info p{
+    color:var(--muted);
+    line-height:1.9;
+    font-size:16px;
+}
 
-        .btn-secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
+.lobby-box{
+    background:rgba(41,42,45,.9);
+    border:1px solid var(--border);
+    border-radius:24px;
+    padding:30px;
+    box-shadow:0 20px 60px rgba(0,0,0,.3);
+}
 
-        .btn-secondary:hover {
-            background: #e0e0e0;
-        }
+.preview{
+    width:100%;
+    aspect-ratio:16/10;
+    background:#111;
+    border-radius:18px;
+    overflow:hidden;
+    position:relative;
+    margin-bottom:20px;
+}
 
-        .divider {
-            display: flex;
-            align-items: center;
-            margin: 10px 0;
-        }
+#previewVideo{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    transform:scaleX(-1);
+}
 
-        .divider::before,
-        .divider::after {
-            content: '';
-            flex: 1;
-            height: 1px;
-            background: #e0e0e0;
-        }
+.preview-name{
+    position:absolute;
+    bottom:12px;
+    right:12px;
+    background:rgba(0,0,0,.6);
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:13px;
+}
 
-        .divider span {
-            padding: 0 15px;
-            color: #999;
-            font-size: 14px;
-        }
+.input{
+    width:100%;
+    height:50px;
+    background:#202124;
+    border:1px solid #5f6368;
+    border-radius:10px;
+    color:white;
+    padding:0 15px;
+    font-size:15px;
+    outline:none;
+    margin-bottom:12px;
+}
 
-        .join-section {
-            display: flex;
-            gap: 10px;
-        }
+.input:focus{
+    border-color:#8ab4f8;
+}
 
-        .join-section .btn {
-            white-space: nowrap;
-        }
+.primary-btn{
+    width:100%;
+    height:50px;
+    border:none;
+    border-radius:10px;
+    background:#8ab4f8;
+    color:#202124;
+    font-size:16px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.2s;
+}
 
-        .meeting-room {
-            display: none;
-            width: 100%;
-            height: 100vh;
-            background: #202124;
-            color: white;
-            flex-direction: column;
-        }
+.primary-btn:hover{
+    filter:brightness(1.08);
+    transform:translateY(-1px);
+}
 
-        .meeting-room.active {
-            display: flex;
-        }
+/* ================= APP ================= */
 
-        .room-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 15px 20px;
-            background: #1a1a1a;
-        }
+#app{
+    position:fixed;
+    inset:0;
+    display:none;
+    flex-direction:column;
+}
 
-        .room-code {
-            background: #3c4043;
-            padding: 5px 15px;
-            border-radius: 8px;
-            font-size: 14px;
-        }
+.topbar{
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 20px;
+    border-bottom:1px solid var(--border);
+    background:#202124;
+    flex-shrink:0;
+}
 
-        .room-videos {
-            flex: 1;
-            display: flex;
-            flex-wrap: wrap;
-            padding: 20px;
-            gap: 20px;
-            justify-content: center;
-            align-items: center;
-            overflow-y: auto;
-        }
+.brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:20px;
+    font-weight:600;
+}
 
-        .video-tile {
-            width: 300px;
-            height: 200px;
-            background: #3c4043;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            position: relative;
-            overflow: hidden;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
-        }
+.logo{
+    width:34px;
+    height:34px;
+    border-radius:10px;
+    display:grid;
+    place-items:center;
+    background:#8ab4f8;
+    color:#202124;
+    font-weight:900;
+}
 
-        .video-tile.self {
-            border: 3px solid #667eea;
-        }
+.meeting-info{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    color:var(--muted);
+    font-size:14px;
+}
 
-        .video-tile p {
-            margin-top: 10px;
-            font-size: 14px;
-        }
+.room-id{
+    padding:7px 10px;
+    border-radius:8px;
+    background:#292a2d;
+    color:#f1f3f4;
+}
 
-        .avatar-placeholder {
-            width: 80px;
-            height: 80px;
-            background: #667eea;
-            border-radius: 50%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            font-size: 32px;
-            font-weight: bold;
-            color: white;
-        }
+.copy-btn{
+    background:transparent;
+    border:1px solid #5f6368;
+    color:#f1f3f4;
+    padding:7px 10px;
+    border-radius:8px;
+    cursor:pointer;
+}
 
-        .room-controls {
-            display: flex;
-            justify-content: center;
-            gap: 25px;
-            padding: 15px;
-            background: #1a1a1a;
-        }
+.main{
+    flex:1;
+    display:flex;
+    min-height:0;
+}
 
-        .control-btn {
-            background: #3c4043;
-            border: none;
-            color: white;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+/* ================= VIDEO AREA ================= */
 
-        .control-btn:hover {
-            background: #5f6368;
-        }
+.video-area{
+    flex:1;
+    padding:16px;
+    display:flex;
+    flex-direction:column;
+    min-width:0;
+}
 
-        .control-btn.leave {
-            background: #d93025;
-        }
+.video-grid{
+    flex:1;
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    gap:12px;
+    min-height:0;
+}
 
-        .control-btn.leave:hover {
-            background: #c5221f;
-        }
+.video-card{
+    background:#111;
+    border-radius:14px;
+    overflow:hidden;
+    position:relative;
+    min-height:150px;
+    border:1px solid rgba(255,255,255,.05);
+}
 
-        .hidden {
-            display: none;
-        }
+.video-card video{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
 
-        @media (max-width: 480px) {
-            .video-tile {
-                width: 100%;
-                height: 150px;
-            }
-        }
-    </style>
+.local-video{
+    transform:scaleX(-1);
+}
+
+.video-name{
+    position:absolute;
+    bottom:10px;
+    right:10px;
+    background:rgba(0,0,0,.65);
+    padding:6px 10px;
+    border-radius:8px;
+    font-size:13px;
+}
+
+.mic-status{
+    position:absolute;
+    bottom:10px;
+    left:10px;
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    background:rgba(0,0,0,.65);
+    display:grid;
+    place-items:center;
+    font-size:14px;
+}
+
+.waiting{
+    position:absolute;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    gap:12px;
+    background:#111;
+}
+
+.avatar{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    background:#3c4043;
+    display:grid;
+    place-items:center;
+    font-size:28px;
+}
+
+/* ================= SIDE PANEL ================= */
+
+.side-panel{
+    width:340px;
+    background:#292a2d;
+    border-left:1px solid var(--border);
+    display:none;
+    flex-direction:column;
+    min-height:0;
+}
+
+.side-header{
+    height:64px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 18px;
+    border-bottom:1px solid var(--border);
+}
+
+.side-header h3{
+    font-size:17px;
+}
+
+.close-side{
+    border:none;
+    background:transparent;
+    color:white;
+    font-size:22px;
+    cursor:pointer;
+}
+
+.side-content{
+    flex:1;
+    overflow:auto;
+}
+
+/* participants */
+
+.participant{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:14px 18px;
+}
+
+.participant-avatar{
+    width:38px;
+    height:38px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    background:#3c4043;
+}
+
+.participant-name{
+    flex:1;
+}
+
+/* chat */
+
+.chat{
+    display:none;
+    height:100%;
+    flex-direction:column;
+}
+
+.chat-messages{
+    flex:1;
+    overflow:auto;
+    padding:15px;
+}
+
+.message{
+    margin-bottom:14px;
+}
+
+.message-author{
+    font-size:12px;
+    color:#8ab4f8;
+    margin-bottom:3px;
+}
+
+.message-text{
+    background:#3c4043;
+    padding:9px 12px;
+    border-radius:10px;
+    display:inline-block;
+    max-width:90%;
+    line-height:1.6;
+}
+
+.chat-input{
+    display:flex;
+    gap:8px;
+    padding:12px;
+    border-top:1px solid var(--border);
+}
+
+.chat-input input{
+    flex:1;
+    height:42px;
+    background:#202124;
+    border:1px solid #5f6368;
+    color:white;
+    border-radius:8px;
+    padding:0 10px;
+    outline:none;
+}
+
+.send-btn{
+    width:45px;
+    border:none;
+    border-radius:8px;
+    background:#8ab4f8;
+    cursor:pointer;
+}
+
+/* ================= CONTROLS ================= */
+
+.controls{
+    height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-shrink:0;
+    position:relative;
+}
+
+.control-btn{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    border:1px solid rgba(255,255,255,.08);
+    background:#3c4043;
+    color:white;
+    cursor:pointer;
+    font-size:19px;
+    transition:.2s;
+}
+
+.control-btn:hover{
+    background:#4b4e52;
+}
+
+.control-btn.active{
+    background:#8ab4f8;
+    color:#202124;
+}
+
+.control-btn.danger{
+    background:#ea4335;
+    color:white;
+    width:58px;
+    border-radius:18px;
+}
+
+.connection{
+    position:absolute;
+    left:20px;
+    color:#9aa0a6;
+    font-size:12px;
+}
+
+.connection-dot{
+    display:inline-block;
+    width:8px;
+    height:8px;
+    border-radius:50%;
+    background:#fbbc04;
+    margin-left:5px;
+}
+
+.connection.connected .connection-dot{
+    background:#34a853;
+}
+
+/* ================= MODAL ================= */
+
+.modal{
+    position:fixed;
+    inset:0;
+    display:none;
+    align-items:center;
+    justify-content:center;
+    background:rgba(0,0,0,.65);
+    z-index:200;
+}
+
+.modal-box{
+    width:min(90%,520px);
+    background:#292a2d;
+    border-radius:20px;
+    padding:25px;
+    border:1px solid var(--border);
+}
+
+.modal-box h2{
+    margin-bottom:15px;
+}
+
+.code-area{
+    width:100%;
+    height:150px;
+    background:#202124;
+    border:1px solid #5f6368;
+    border-radius:10px;
+    color:#f1f3f4;
+    padding:12px;
+    resize:none;
+    direction:ltr;
+    text-align:left;
+    font-family:monospace;
+}
+
+.modal-actions{
+    display:flex;
+    gap:10px;
+    margin-top:12px;
+}
+
+.modal-actions button{
+    flex:1;
+    height:45px;
+    border:none;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.accept{
+    background:#8ab4f8;
+}
+
+.cancel{
+    background:#3c4043;
+    color:white;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:800px){
+
+    .lobby-card{
+        grid-template-columns:1fr;
+        gap:20px;
+    }
+
+    .lobby-info{
+        display:none;
+    }
+
+    .side-panel{
+        position:absolute;
+        top:64px;
+        bottom:82px;
+        right:0;
+        z-index:50;
+        width:min(90%,340px);
+    }
+
+    .meeting-info{
+        display:none;
+    }
+
+    .video-grid{
+        grid-template-columns:1fr;
+    }
+
+    .connection{
+        display:none;
+    }
+}
+</style>
 </head>
+
 <body>
-    <div id="lobby" class="container-lobby">
-        <div class="logo">
-            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z" fill="#667eea"/>
-            </svg>
+
+<!-- ================= LOBBY ================= -->
+
+<section id="lobby">
+
+    <div class="lobby-card">
+
+        <div class="lobby-info">
+            <h1><span>Meet</span> خودت را بساز.</h1>
+            <p>
+                یک سیستم ویدئوکنفرانس ساده و سریع،
+                ساخته‌شده با HTML، CSS، JavaScript و WebRTC.
+            </p>
         </div>
-        <h1>جلسه ویدئویی</h1>
-        <p class="subtitle">یک جلسه جدید ایجاد کنید یا با کد وارد شوید</p>
 
-        <div class="meeting-form">
-            <button class="btn btn-primary" id="createBtn">ایجاد جلسه جدید</button>
+        <div class="lobby-box">
 
-            <div class="divider">
-                <span>یا</span>
+            <div class="preview">
+                <video id="previewVideo" autoplay muted playsinline></video>
+                <div class="preview-name" id="previewName">
+                    شما
+                </div>
             </div>
 
-            <div class="join-section">
-                <input type="text" id="meetingCode" placeholder="کد جلسه را وارد کنید" dir="ltr">
-                <button class="btn btn-secondary" id="joinBtn">پیوستن</button>
-            </div>
+            <input
+                id="nameInput"
+                class="input"
+                placeholder="نام شما"
+                maxlength="30"
+            >
+
+            <button class="primary-btn" id="startBtn">
+                ورود به جلسه
+            </button>
+
         </div>
+
     </div>
 
-    <div id="meetingRoom" class="meeting-room">
-        <div class="room-header">
-            <span class="room-code" id="roomCodeDisplay"></span>
-            <span id="participantCount">۱ نفر</span>
+</section>
+
+
+<!-- ================= APP ================= -->
+
+<section id="app">
+
+    <header class="topbar">
+
+        <div class="brand">
+            <div class="logo">M</div>
+            <span>Meet</span>
         </div>
-        <div class="room-videos">
-            <div class="video-tile self">
-                <div class="avatar-placeholder">ش</div>
-                <p>شما</p>
+
+        <div class="meeting-info">
+            <span>اتاق</span>
+            <span class="room-id" id="roomId">----</span>
+            <button class="copy-btn" id="copyRoom">
+                کپی لینک
+            </button>
+        </div>
+
+    </header>
+
+
+    <main class="main">
+
+        <section class="video-area">
+
+            <div class="video-grid" id="videoGrid">
+
+                <div class="video-card">
+
+                    <video
+                        id="localVideo"
+                        class="local-video"
+                        autoplay
+                        muted
+                        playsinline>
+                    </video>
+
+                    <div class="video-name" id="localName">
+                        شما
+                    </div>
+
+                    <div class="mic-status" id="localMicStatus">
+                        🎙️
+                    </div>
+
+                    <div class="waiting" id="localWaiting">
+                        <div class="avatar">👤</div>
+                        <span>دوربین خاموش است</span>
+                    </div>
+
+                </div>
+
             </div>
+
+
+            <div class="controls">
+
+                <div class="connection" id="connectionStatus">
+                    <span class="connection-dot"></span>
+                    آماده اتصال
+                </div>
+
+                <button
+                    class="control-btn"
+                    id="micBtn"
+                    title="میکروفون">
+                    🎙️
+                </button>
+
+                <button
+                    class="control-btn"
+                    id="cameraBtn"
+                    title="دوربین">
+                    📹
+                </button>
+
+                <button
+                    class="control-btn"
+                    id="screenBtn"
+                    title="اشتراک صفحه">
+                    🖥️
+                </button>
+
+                <button
+                    class="control-btn"
+                    id="peopleBtn"
+                    title="افراد">
+                    👥
+                </button>
+
+                <button
+                    class="control-btn"
+                    id="chatBtn"
+                    title="چت">
+                    💬
+                </button>
+
+                <button
+                    class="control-btn danger"
+                    id="leaveBtn"
+                    title="خروج">
+                    ☎
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- SIDE PANEL -->
+
+        <aside class="side-panel" id="sidePanel">
+
+            <div class="side-header">
+
+                <h3 id="sideTitle">افراد</h3>
+
+                <button class="close-side" id="closeSide">
+                    ×
+                </button>
+
+            </div>
+
+
+            <div class="side-content">
+
+                <div id="participants">
+
+                    <div class="participant">
+
+                        <div class="participant-avatar">
+                            👤
+                        </div>
+
+                        <div class="participant-name" id="participantName">
+                            شما
+                        </div>
+
+                        <span>🎙️</span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="chat" id="chat">
+
+                    <div class="chat-messages" id="chatMessages"></div>
+
+                    <div class="chat-input">
+
+                        <input
+                            id="messageInput"
+                            placeholder="پیام..."
+                        >
+
+                        <button
+                            class="send-btn"
+                            id="sendMessage">
+                            ➤
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </aside>
+
+    </main>
+
+</section>
+
+
+<!-- ================= SIGNAL MODAL ================= -->
+
+<div class="modal" id="signalModal">
+
+    <div class="modal-box">
+
+        <h2 id="modalTitle">
+            اتصال به کاربر دیگر
+        </h2>
+
+        <p style="color:#9aa0a6;margin-bottom:12px;line-height:1.7">
+            برای اتصال مستقیم WebRTC، اطلاعات اتصال را بین دو مرورگر
+            کپی و منتقل کنید.
+        </p>
+
+        <textarea
+            class="code-area"
+            id="signalText"
+            placeholder="کد اتصال اینجا قرار می‌گیرد..."
+        ></textarea>
+
+        <div class="modal-actions">
+
+            <button
+                class="accept"
+                id="signalAction">
+                ادامه
+            </button>
+
+            <button
+                class="cancel"
+                id="signalClose">
+                بستن
+            </button>
+
         </div>
-        <div class="room-controls">
-            <button class="control-btn" title="قطع صدا" id="muteBtn" onclick="toggleMute()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3z"/>
-                    <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
-                </svg>
-            </button>
-            <button class="control-btn" title="قطع تصویر" id="videoBtn" onclick="toggleVideo()">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M18 10.48V6c0-1.1-.9-2-2-2H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2v-4.48l4 3.98v-11l-4 3.98z"/>
-                </svg>
-            </button>
-            <button class="control-btn leave" id="leaveBtn" title="خروج">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="white">
-                    <path d="M10.09 15.59L11.5 17l5-5-5-5-1.41 1.41L12.67 11H3v2h9.67l-2.58 2.59zM19 3H5c-1.11 0-2 .9-2 2v4h2V5h14v14H5v-4H3v4c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/>
-                </svg>
-            </button>
-        </div>
+
     </div>
 
-    <script>
-        function enterRoom(meetingCode) {
-            document.getElementById('lobby').classList.add('hidden');
-            const room = document.getElementById('meetingRoom');
-            room.classList.add('active');
-            document.getElementById('roomCodeDisplay').textContent = meetingCode;
-            document.getElementById('participantCount').textContent = '۱ نفر';
-            window.history.pushState({}, '', `?meeting=${meetingCode}`);
+</div>
+
+
+<script>
+
+/* =========================================================
+   GLOBAL STATE
+========================================================= */
+
+let localStream = null;
+let screenStream = null;
+
+let peer = null;
+
+let isMicOn = true;
+let isCameraOn = true;
+
+let userName = "";
+let roomCode = "";
+
+const rtcConfig = {
+    iceServers: [
+        {
+            urls: "stun:stun.l.google.com:19302"
+        },
+        {
+            urls: "stun:stun1.l.google.com:19302"
         }
+    ]
+};
 
-        function generateMeetingCode() {
-            const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-            let code = '';
-            for (let i = 0; i < 10; i++) {
-                code += chars.charAt(Math.floor(Math.random() * chars.length));
-            }
-            return code;
+
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const lobby =
+    document.getElementById("lobby");
+
+const app =
+    document.getElementById("app");
+
+const previewVideo =
+    document.getElementById("previewVideo");
+
+const localVideo =
+    document.getElementById("localVideo");
+
+const nameInput =
+    document.getElementById("nameInput");
+
+const startBtn =
+    document.getElementById("startBtn");
+
+const micBtn =
+    document.getElementById("micBtn");
+
+const cameraBtn =
+    document.getElementById("cameraBtn");
+
+const screenBtn =
+    document.getElementById("screenBtn");
+
+const peopleBtn =
+    document.getElementById("peopleBtn");
+
+const chatBtn =
+    document.getElementById("chatBtn");
+
+const leaveBtn =
+    document.getElementById("leaveBtn");
+
+const sidePanel =
+    document.getElementById("sidePanel");
+
+const closeSide =
+    document.getElementById("closeSide");
+
+const sideTitle =
+    document.getElementById("sideTitle");
+
+const chat =
+    document.getElementById("chat");
+
+const participants =
+    document.getElementById("participants");
+
+const messageInput =
+    document.getElementById("messageInput");
+
+const sendMessage =
+    document.getElementById("sendMessage");
+
+const chatMessages =
+    document.getElementById("chatMessages");
+
+const connectionStatus =
+    document.getElementById("connectionStatus");
+
+const roomId =
+    document.getElementById("roomId");
+
+const copyRoom =
+    document.getElementById("copyRoom");
+
+const signalModal =
+    document.getElementById("signalModal");
+
+const signalText =
+    document.getElementById("signalText");
+
+const modalTitle =
+    document.getElementById("modalTitle");
+
+const signalAction =
+    document.getElementById("signalAction");
+
+const signalClose =
+    document.getElementById("signalClose");
+
+
+/* =========================================================
+   CAMERA PREVIEW
+========================================================= */
+
+async function getMedia(){
+
+    try{
+
+        localStream =
+            await navigator.mediaDevices.getUserMedia({
+                video:true,
+                audio:true
+            });
+
+        previewVideo.srcObject =
+            localStream;
+
+    }catch(error){
+
+        console.error(error);
+
+        alert(
+            "دسترسی به دوربین یا میکروفون داده نشد."
+        );
+
+    }
+
+}
+
+getMedia();
+
+
+/* =========================================================
+   NAME PREVIEW
+========================================================= */
+
+nameInput.addEventListener(
+    "input",
+    () => {
+
+        const name =
+            nameInput.value.trim();
+
+        document.getElementById(
+            "previewName"
+        ).textContent =
+            name || "شما";
+
+    }
+);
+
+
+/* =========================================================
+   RANDOM ROOM
+========================================================= */
+
+function createRoomCode(){
+
+    const chars =
+        "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+    let result = "";
+
+    for(let i=0;i<6;i++){
+
+        result +=
+            chars[
+                Math.floor(
+                    Math.random() *
+                    chars.length
+                )
+            ];
+
+    }
+
+    return result;
+
+}
+
+
+/* =========================================================
+   START
+========================================================= */
+
+startBtn.onclick = async () => {
+
+    userName =
+        nameInput.value.trim() ||
+        "کاربر";
+
+    if(!localStream){
+
+        await getMedia();
+
+    }
+
+    roomCode =
+        createRoomCode();
+
+    roomId.textContent =
+        roomCode;
+
+    document.getElementById(
+        "localName"
+    ).textContent =
+        userName;
+
+    document.getElementById(
+        "participantName"
+    ).textContent =
+        userName;
+
+    localVideo.srcObject =
+        localStream;
+
+    lobby.style.display =
+        "none";
+
+    app.style.display =
+        "flex";
+
+    updateConnection(
+        "آماده اتصال",
+        false
+    );
+
+};
+
+
+/* =========================================================
+   CONNECTION STATUS
+========================================================= */
+
+function updateConnection(
+    text,
+    connected
+){
+
+    connectionStatus.innerHTML = `
+        <span class="connection-dot"></span>
+        ${text}
+    `;
+
+    if(connected){
+
+        connectionStatus.classList.add(
+            "connected"
+        );
+
+    }else{
+
+        connectionStatus.classList.remove(
+            "connected"
+        );
+
+    }
+
+}
+
+
+/* =========================================================
+   MICROPHONE
+========================================================= */
+
+micBtn.onclick = () => {
+
+    if(!localStream) return;
+
+    const tracks =
+        localStream.getAudioTracks();
+
+    tracks.forEach(
+        track => {
+            track.enabled =
+                !track.enabled;
+            isMicOn =
+                track.enabled;
         }
+    );
 
-        document.getElementById('createBtn').addEventListener('click', function() {
-            const code = generateMeetingCode();
-            const url = `${window.location.origin}?meeting=${code}`;
-            navigator.clipboard.writeText(url).then(() => {
-                // کپی موفق
-            }).catch(() => {});
-            enterRoom(code);
-        });
+    micBtn.classList.toggle(
+        "active",
+        isMicOn
+    );
 
-        document.getElementById('joinBtn').addEventListener('click', function() {
-            const code = document.getElementById('meetingCode').value.trim();
-            if (!code) {
-                alert('لطفاً کد جلسه را وارد کنید.');
+    micBtn.textContent =
+        isMicOn
+            ? "🎙️"
+            : "🔇";
+
+    document.getElementById(
+        "localMicStatus"
+    ).textContent =
+        isMicOn
+            ? "🎙️"
+            : "🔇";
+
+};
+
+
+/* =========================================================
+   CAMERA
+========================================================= */
+
+cameraBtn.onclick = () => {
+
+    if(!localStream) return;
+
+    const tracks =
+        localStream.getVideoTracks();
+
+    tracks.forEach(
+        track => {
+
+            track.enabled =
+                !track.enabled;
+
+            isCameraOn =
+                track.enabled;
+
+        }
+    );
+
+    cameraBtn.classList.toggle(
+        "active",
+        isCameraOn
+    );
+
+    cameraBtn.textContent =
+        isCameraOn
+            ? "📹"
+            : "🚫";
+
+    document.getElementById(
+        "localWaiting"
+    ).style.display =
+        isCameraOn
+            ? "none"
+            : "flex";
+
+};
+
+
+/* =========================================================
+   SCREEN SHARE
+========================================================= */
+
+screenBtn.onclick =
+    async () => {
+
+        try{
+
+            if(screenStream){
+
+                stopScreenShare();
+
                 return;
+
             }
-            if (code.length < 6) {
-                alert('کد جلسه باید حداقل ۶ کاراکتر باشد.');
+
+            screenStream =
+                await navigator.mediaDevices
+                    .getDisplayMedia({
+                        video:true,
+                        audio:true
+                    });
+
+            const screenTrack =
+                screenStream
+                    .getVideoTracks()[0];
+
+            localVideo.srcObject =
+                screenStream;
+
+            screenTrack.onended =
+                () => {
+
+                    stopScreenShare();
+
+                };
+
+            screenBtn.classList.add(
+                "active"
+            );
+
+        }catch(error){
+
+            console.log(error);
+
+        }
+
+    };
+
+
+function stopScreenShare(){
+
+    if(screenStream){
+
+        screenStream
+            .getTracks()
+            .forEach(
+                track =>
+                    track.stop()
+            );
+
+        screenStream = null;
+
+    }
+
+    localVideo.srcObject =
+        localStream;
+
+    screenBtn.classList.remove(
+        "active"
+    );
+
+}
+
+
+/* =========================================================
+   SIDE PANEL
+========================================================= */
+
+peopleBtn.onclick =
+    () => {
+
+        sidePanel.style.display =
+            "flex";
+
+        chat.style.display =
+            "none";
+
+        participants.style.display =
+            "block";
+
+        sideTitle.textContent =
+            "افراد";
+
+    };
+
+
+chatBtn.onclick =
+    () => {
+
+        sidePanel.style.display =
+            "flex";
+
+        participants.style.display =
+            "none";
+
+        chat.style.display =
+            "flex";
+
+        sideTitle.textContent =
+            "گفتگو";
+
+    };
+
+
+closeSide.onclick =
+    () => {
+
+        sidePanel.style.display =
+            "none";
+
+    };
+
+
+/* =========================================================
+   CHAT
+========================================================= */
+
+function sendChat(){
+
+    const text =
+        messageInput.value.trim();
+
+    if(!text) return;
+
+    addMessage(
+        userName,
+        text
+    );
+
+    messageInput.value =
+        "";
+
+}
+
+
+function addMessage(
+    author,
+    text
+){
+
+    const message =
+        document.createElement(
+            "div"
+        );
+
+    message.className =
+        "message";
+
+    message.innerHTML = `
+        <div class="message-author">
+            ${escapeHTML(author)}
+        </div>
+
+        <div class="message-text">
+            ${escapeHTML(text)}
+        </div>
+    `;
+
+    chatMessages.appendChild(
+        message
+    );
+
+    chatMessages.scrollTop =
+        chatMessages.scrollHeight;
+
+}
+
+
+sendMessage.onclick =
+    sendChat;
+
+
+messageInput.addEventListener(
+    "keydown",
+    event => {
+
+        if(event.key === "Enter"){
+
+            sendChat();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   ESCAPE HTML
+========================================================= */
+
+function escapeHTML(text){
+
+    return text
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* =========================================================
+   COPY ROOM LINK
+========================================================= */
+
+copyRoom.onclick =
+    async () => {
+
+        const url =
+            location.href
+            .split("#")[0] +
+            "#room=" +
+            roomCode;
+
+        try{
+
+            await navigator.clipboard.writeText(
+                url
+            );
+
+            copyRoom.textContent =
+                "کپی شد ✓";
+
+            setTimeout(
+                () => {
+
+                    copyRoom.textContent =
+                        "کپی لینک";
+
+                },
+                1500
+            );
+
+        }catch{
+
+            prompt(
+                "لینک جلسه:",
+                url
+            );
+
+        }
+
+    };
+
+
+/* =========================================================
+   WEBRTC
+========================================================= */
+
+function createPeer(){
+
+    peer =
+        new RTCPeerConnection(
+            rtcConfig
+        );
+
+    if(localStream){
+
+        localStream
+            .getTracks()
+            .forEach(
+                track => {
+
+                    peer.addTrack(
+                        track,
+                        localStream
+                    );
+
+                }
+            );
+
+    }
+
+    peer.ontrack =
+        event => {
+
+            addRemoteVideo(
+                event.streams[0]
+            );
+
+        };
+
+    peer.onconnectionstatechange =
+        () => {
+
+            const state =
+                peer.connectionState;
+
+            if(state === "connected"){
+
+                updateConnection(
+                    "متصل",
+                    true
+                );
+
+            }else if(
+                state === "connecting"
+            ){
+
+                updateConnection(
+                    "در حال اتصال...",
+                    false
+                );
+
+            }else if(
+                state === "disconnected"
+            ){
+
+                updateConnection(
+                    "ارتباط قطع شد",
+                    false
+                );
+
+            }
+
+        };
+
+}
+
+
+/* =========================================================
+   REMOTE VIDEO
+========================================================= */
+
+function addRemoteVideo(
+    stream
+){
+
+    if(
+        document.getElementById(
+            "remoteVideo"
+        )
+    ) return;
+
+    const card =
+        document.createElement(
+            "div"
+        );
+
+    card.className =
+        "video-card";
+
+    card.id =
+        "remoteCard";
+
+    card.innerHTML = `
+
+        <video
+            id="remoteVideo"
+            autoplay
+            playsinline>
+        </video>
+
+        <div class="video-name">
+            کاربر دیگر
+        </div>
+
+    `;
+
+    document
+        .getElementById("videoGrid")
+        .appendChild(card);
+
+    document
+        .getElementById("remoteVideo")
+        .srcObject =
+        stream;
+
+}
+
+
+/* =========================================================
+   SIGNALING MODAL
+========================================================= */
+
+let signalMode =
+    null;
+
+
+/*
+    This demo uses manual signaling.
+
+    Mode:
+    create-offer
+    answer-offer
+*/
+
+async function createOffer(){
+
+    createPeer();
+
+    const offer =
+        await peer.createOffer();
+
+    await peer.setLocalDescription(
+        offer
+    );
+
+    await waitForIce();
+
+    signalMode =
+        "answer";
+
+    modalTitle.textContent =
+        "Offer ساخته شد";
+
+    signalText.value =
+        JSON.stringify(
+            peer.localDescription
+        );
+
+    signalAction.textContent =
+        "بستن";
+
+    signalModal.style.display =
+        "flex";
+
+}
+
+
+async function createAnswer(
+    offer
+){
+
+    createPeer();
+
+    await peer.setRemoteDescription(
+        offer
+    );
+
+    const answer =
+        await peer.createAnswer();
+
+    await peer.setLocalDescription(
+        answer
+    );
+
+    await waitForIce();
+
+    signalMode =
+        "done";
+
+    modalTitle.textContent =
+        "Answer ساخته شد";
+
+    signalText.value =
+        JSON.stringify(
+            peer.localDescription
+        );
+
+    signalAction.textContent =
+        "بستن";
+
+}
+
+
+async function applyAnswer(
+    answer
+){
+
+    if(!peer) return;
+
+    await peer.setRemoteDescription(
+        answer
+    );
+
+    signalModal.style.display =
+        "none";
+
+}
+
+
+function waitForIce(){
+
+    return new Promise(
+        resolve => {
+
+            if(
+                peer.iceGatheringState ===
+                "complete"
+            ){
+
+                resolve();
+
                 return;
-            }
-            enterRoom(code);
-        });
 
-        document.getElementById('meetingCode').addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                document.getElementById('joinBtn').click();
             }
-        });
 
-        document.getElementById('leaveBtn').addEventListener('click', function() {
-            if (confirm('آیا مطمئنید می‌خواهید جلسه را ترک کنید؟')) {
-                window.location.href = window.location.origin + window.location.pathname;
-            }
-        });
+            const check =
+                () => {
 
-        let isMuted = false;
-        function toggleMute() {
-            isMuted = !isMuted;
-            const btn = document.getElementById('muteBtn');
-            if (isMuted) {
-                btn.style.background = '#d93025';
-            } else {
-                btn.style.background = '#3c4043';
-            }
+                    if(
+                        peer.iceGatheringState ===
+                        "complete"
+                    ){
+
+                        peer.removeEventListener(
+                            "icegatheringstatechange",
+                            check
+                        );
+
+                        resolve();
+
+                    }
+
+                };
+
+            peer.addEventListener(
+                "icegatheringstatechange",
+                check
+            );
+
+            setTimeout(
+                resolve,
+                5000
+            );
+
+        }
+    );
+
+}
+
+
+/* =========================================================
+   SIGNAL BUTTON
+========================================================= */
+
+signalClose.onclick =
+    () => {
+
+        signalModal.style.display =
+            "none";
+
+    };
+
+
+signalAction.onclick =
+    async () => {
+
+        if(
+            signalMode === "done" ||
+            signalMode === "answer"
+        ){
+
+            signalModal.style.display =
+                "none";
+
         }
 
-        let isVideoOff = false;
-        function toggleVideo() {
-            isVideoOff = !isVideoOff;
-            const btn = document.getElementById('videoBtn');
-            if (isVideoOff) {
-                btn.style.background = '#d93025';
-            } else {
-                btn.style.background = '#3c4043';
-            }
+    };
+
+
+/* =========================================================
+   KEYBOARD SHORTCUTS
+========================================================= */
+
+document.addEventListener(
+    "keydown",
+    event => {
+
+        if(
+            event.key === "m" ||
+            event.key === "M"
+        ){
+
+            micBtn.click();
+
         }
 
-        window.addEventListener('DOMContentLoaded', () => {
-            const urlParams = new URLSearchParams(window.location.search);
-            const meetingCode = urlParams.get('meeting');
-            if (meetingCode) {
-                document.getElementById('meetingCode').value = meetingCode;
-                enterRoom(meetingCode);
+        if(
+            event.key === "v" ||
+            event.key === "V"
+        ){
+
+            cameraBtn.click();
+
+        }
+
+    }
+);
+
+
+/* =========================================================
+   LEAVE
+========================================================= */
+
+leaveBtn.onclick =
+    () => {
+
+        if(
+            confirm(
+                "آیا می‌خواهید از جلسه خارج شوید؟"
+            )
+        ){
+
+            if(peer){
+
+                peer.close();
+
+                peer = null;
+
             }
-        });
-    </script>
+
+            if(localStream){
+
+                localStream
+                    .getTracks()
+                    .forEach(
+                        track =>
+                            track.stop()
+                    );
+
+            }
+
+            location.reload();
+
+        }
+
+    };
+
+
+/* =========================================================
+   INITIAL BUTTON STATE
+========================================================= */
+
+micBtn.classList.add(
+    "active"
+);
+
+cameraBtn.classList.add(
+    "active"
+);
+
+</script>
+
 </body>
 </html>
