@@ -1,0 +1,640 @@
+# ============================================================
+#  robots.txt for Reybotix
+#  Domain: https://reybotix.ir
+#  Last updated: 2026-09-23
+#  Contact: 09193552113
+#  Language: Persian (fa-IR)
+# ============================================================
+#
+#  THIS FILE TELLS SEARCH ENGINE CRAWLERS AND AI SCRAPERS
+#  WHICH PAGES THEY MAY AND MAY NOT CRAWL.
+#  EDIT WITH CAUTION — MISTAKES CAN HIDE YOUR SITE FROM GOOGLE.
+# ============================================================
+
+# ============================================================
+#  1. GLOBAL RULES — APPLIES TO ALL CRAWLERS
+# ============================================================
+User-agent: *
+Allow: /
+
+# --- Essential files that MUST be accessible ---
+Allow: /sitemap.xml
+Allow: /sitemap-index.xml
+Allow: /sitemap-images.xml
+Allow: /sitemap-videos.xml
+Allow: /robots.txt
+Allow: /favicon.ico
+Allow: /favicon.svg
+Allow: /apple-touch-icon.png
+Allow: /manifest.json
+Allow: /browserconfig.xml
+Allow: /security.txt
+Allow: /humans.txt
+Allow: /ads.txt
+
+# --- Static assets (needed for rendering) ---
+Allow: /assets/
+Allow: /images/
+Allow: /img/
+Allow: /css/
+Allow: /js/
+Allow: /fonts/
+Allow: /videos/
+Allow: /uploads/
+Allow: /media/
+
+# --- Private & admin paths ---
+Disallow: /admin/
+Disallow: /panel/
+Disallow: /dashboard/
+Disallow: /cp/
+Disallow: /cpanel/
+Disallow: /wp-admin/
+Disallow: /wp-login.php
+Disallow: /administrator/
+Disallow: /manage/
+Disallow: /manager/
+Disallow: /login/
+Disallow: /logout/
+Disallow: /signin/
+Disallow: /signup/
+Disallow: /register/
+Disallow: /checkout/
+Disallow: /cart/
+Disallow: /basket/
+Disallow: /account/
+Disallow: /profile/
+Disallow: /user/
+Disallow: /users/
+Disallow: /members/
+Disallow: /private/
+Disallow: /personal/
+Disallow: /secure/
+Disallow: /secret/
+Disallow: /hidden/
+
+# --- Temporary, test & backup paths ---
+Disallow: /temp/
+Disallow: /tmp/
+Disallow: /cache/
+Disallow: /backup/
+Disallow: /backups/
+Disallow: /bak/
+Disallow: /old/
+Disallow: /new/
+Disallow: /draft/
+Disallow: /preview/
+Disallow: /test/
+Disallow: /testing/
+Disallow: /dev/
+Disallow: /development/
+Disallow: /staging/
+Disallow: /sandbox/
+Disallow: /demo/
+Disallow: /sample/
+Disallow: /trash/
+Disallow: /deleted/
+Disallow: /archive/
+
+# --- System & sensitive files ---
+Disallow: /config/
+Disallow: /configuration/
+Disallow: /includes/
+Disallow: /include/
+Disallow: /lib/
+Disallow: /vendor/
+Disallow: /node_modules/
+Disallow: /data/
+Disallow: /database/
+Disallow: /db/
+Disallow: /logs/
+Disallow: /log/
+Disallow: /errors/
+Disallow: /error/
+Disallow: /system/
+Disallow: /core/
+Disallow: /src/
+Disallow: /dist/
+
+# --- Sensitive file extensions ---
+Disallow: /*.env
+Disallow: /*.env.*
+Disallow: /*.log$
+Disallow: /*.sql$
+Disallow: /*.db$
+Disallow: /*.sqlite$
+Disallow: /*.bak$
+Disallow: /*.old$
+Disallow: /*.orig$
+Disallow: /*.save$
+Disallow: /*.swp$
+Disallow: /*.swo$
+Disallow: /*.tmp$
+Disallow: /*.temp$
+Disallow: /*.config$
+Disallow: /*.cfg$
+Disallow: /*.ini$
+Disallow: /*.conf$
+Disallow: /*.yml$
+Disallow: /*.yaml$
+Disallow: /*.toml$
+Disallow: /*.lock$
+Disallow: /*.pid$
+
+# --- Hidden & version-control files ---
+Disallow: /.git/
+Disallow: /.svn/
+Disallow: /.hg/
+Disallow: /.bzr/
+Disallow: /.htaccess
+Disallow: /.htpasswd
+Disallow: /.htgroup
+Disallow: /.DS_Store
+Disallow: /Thumbs.db
+Disallow: /desktop.ini
+Disallow: /.well-known/security.txt
+Disallow: /.well-known/change-password
+Disallow: /.well-known/openid-configuration
+
+# --- URL parameters (avoid duplicate content) ---
+Disallow: /*?utm_
+Disallow: /*?ref=
+Disallow: /*?referrer=
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?yclid=
+Disallow: /*?dclid=
+Disallow: /*?msclkid=
+Disallow: /*?sessionid=
+Disallow: /*?sid=
+Disallow: /*?sess=
+Disallow: /*?token=
+Disallow: /*?auth=
+Disallow: /*?key=
+Disallow: /*?password=
+Disallow: /*?sort=
+Disallow: /*?order=
+Disallow: /*?orderby=
+Disallow: /*?filter=
+Disallow: /*?filters=
+Disallow: /*?page=0
+Disallow: /*?print=
+Disallow: /*?format=
+Disallow: /*?output=
+Disallow: /*?share=
+Disallow: /*?preview=
+Disallow: /*?debug=
+Disallow: /*?test=
+Disallow: /*&sessionid=
+Disallow: /*&sid=
+Disallow: /*&utm_
+
+# --- Search, calendar & archive pages ---
+Disallow: /search
+Disallow: /search/
+Disallow: /search?
+Disallow: /?s=
+Disallow: /?q=
+Disallow: /?query=
+Disallow: /find/
+Disallow: /lookup/
+Disallow: /calendar/
+Disallow: /date/
+Disallow: /archive/
+
+# ============================================================
+#  2. MAJOR SEARCH ENGINE CRAWLERS
+# ============================================================
+
+# --- Google ---
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 0
+
+User-agent: Googlebot-Image
+Allow: /
+
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Video
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+User-agent: Google-InspectionTool
+Allow: /
+
+User-agent: Storebot-Google
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: AdsBot-Google
+Allow: /
+
+User-agent: AdsBot-Google-Mobile
+Allow: /
+
+User-agent: AdsBot-Google-Mobile-Apps
+Allow: /
+
+User-agent: Mediapartners-Google
+Allow: /
+
+User-agent: APIs-Google
+Allow: /
+
+User-agent: FeedFetcher-Google
+Allow: /
+
+User-agent: Google-Site-Verification
+Allow: /
+
+# --- Bing & Microsoft ---
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: BingPreview
+Allow: /
+
+User-agent: AdIdxBot
+Allow: /
+
+User-agent: MicrosoftPreview
+Allow: /
+
+# --- Yandex ---
+User-agent: YandexBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: YandexImages
+Allow: /
+
+User-agent: YandexVideo
+Allow: /
+
+User-agent: YandexMedia
+Allow: /
+
+User-agent: YandexBlogs
+Allow: /
+
+User-agent: YandexFavicons
+Allow: /
+
+User-agent: YandexWebmaster
+Allow: /
+
+User-agent: YandexDirect
+Allow: /
+
+User-agent: YandexMetrika
+Allow: /
+
+# --- Baidu ---
+User-agent: Baiduspider
+Allow: /
+Crawl-delay: 2
+
+User-agent: Baiduspider-image
+Allow: /
+
+User-agent: Baiduspider-video
+Allow: /
+
+# --- Yahoo ---
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# --- Apple ---
+User-agent: Applebot
+Allow: /
+Crawl-delay: 1
+
+# --- DuckDuckGo ---
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# --- Sogou (China) ---
+User-agent: Sogou
+Allow: /
+Crawl-delay: 2
+
+# --- Exalead (France) ---
+User-agent: Exabot
+Allow: /
+Crawl-delay: 2
+
+# --- Naver (Korea) ---
+User-agent: Yeti
+Allow: /
+Crawl-delay: 2
+
+# --- Internet Archive ---
+User-agent: ia_archiver
+Allow: /
+
+# --- Other valid search engines ---
+User-agent: Qwantify
+Allow: /
+
+User-agent: SeznamBot
+Allow: /
+
+User-agent: SputnikBot
+Allow: /
+
+User-agent: NaverBot
+Allow: /
+
+# ============================================================
+#  3. SOCIAL MEDIA & LINK PREVIEW CRAWLERS
+# ============================================================
+#  These MUST be allowed so links shared on social media
+#  display proper previews (title, description, image).
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: FacebookBot
+Allow: /
+
+User-agent: Facebot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: TelegramBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+User-agent: Pinterest
+Allow: /
+
+User-agent: Slackbot
+Allow: /
+
+User-agent: Discordbot
+Allow: /
+
+User-agent: SkypeUriPreview
+Allow: /
+
+User-agent: redditbot
+Allow: /
+
+User-agent: Google-Structured-Data-Testing-Tool
+Allow: /
+
+# ============================================================
+#  4. AI CRAWLERS — REYBOTIX POLICY
+# ============================================================
+#  REYBOTIX POLICY: Our educational content must NOT be used
+#  to train AI models without written permission.
+#  We BLOCK training crawlers but ALLOW search-index crawlers
+#  so our content can appear in AI search results.
+# ============================================================
+
+# --- OpenAI ---
+# Training crawler → BLOCKED
+User-agent: GPTBot
+Disallow: /
+# ChatGPT Browse → BLOCKED (may ignore rules)
+User-agent: ChatGPT-User
+Disallow: /
+# Search-index crawler → ALLOWED (so we appear in ChatGPT Search)
+User-agent: OAI-SearchBot
+Allow: /
+
+# --- Anthropic (Claude) ---
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+User-agent: anthropic-ai
+Disallow: /
+User-agent: cohere-ai
+Disallow: /
+
+# --- Google AI ---
+User-agent: Google-Extended
+Disallow: /
+
+# --- Common Crawl ---
+User-agent: CCBot
+Disallow: /
+
+# --- Perplexity AI ---
+User-agent: PerplexityBot
+Allow: /
+User-agent: Perplexity-User
+Allow: /
+
+# --- Apple AI ---
+User-agent: Applebot-Extended
+Disallow: /
+
+# --- Meta AI ---
+User-agent: Meta-ExternalAgent
+Disallow: /
+
+# --- Amazon ---
+User-agent: Amazonbot
+Disallow: /
+
+# --- Other AI crawlers ---
+User-agent: YouBot
+Disallow: /
+User-agent: ImagesiftBot
+Disallow: /
+User-agent: Timpibot
+Disallow: /
+User-agent: Omgilibot
+Disallow: /
+User-agent: Diffbot
+Disallow: /
+User-agent: Scrapy
+Disallow: /
+User-agent: DuckAssistBot
+Disallow: /
+User-agent: Bytespider
+Disallow: /
+
+# ============================================================
+#  5. SEO & ANALYTICS CRAWLERS (allowed for monitoring)
+# ============================================================
+
+User-agent: AhrefsBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SemrushBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Moz
+Allow: /
+Crawl-delay: 2
+
+User-agent: Rogerbot
+Allow: /
+Crawl-delay: 2
+
+User-agent: Screaming Frog SEO Spider
+Allow: /
+Crawl-delay: 2
+
+User-agent: SiteAuditBot
+Allow: /
+Crawl-delay: 2
+
+User-agent: SEOPowersuite
+Allow: /
+Crawl-delay: 3
+
+User-agent: DotBot
+Allow: /
+Crawl-delay: 2
+
+# ============================================================
+#  6. MALICIOUS, SPAM & UNWANTED CRAWLERS (blocked)
+# ============================================================
+
+# --- Commercial scraping bots ---
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: BLEXBot
+Disallow: /
+
+User-agent: MegaIndex
+Disallow: /
+
+User-agent: ZoominfoBot
+Disallow: /
+
+User-agent: PetalBot
+Disallow: /
+
+User-agent: MauiBot
+Disallow: /
+
+User-agent: Nutch
+Disallow: /
+
+User-agent: DataCha0s
+Disallow: /
+
+User-agent: MSIECrawler
+Disallow: /
+
+# --- Site downloaders ---
+User-agent: WebCopier
+Disallow: /
+User-agent: WebZIP
+Disallow: /
+User-agent: WebStripper
+Disallow: /
+User-agent: SiteSnagger
+Disallow: /
+User-agent: Teleport
+Disallow: /
+User-agent: TeleportPro
+Disallow: /
+User-agent: WebReaper
+Disallow: /
+User-agent: WebSauger
+Disallow: /
+User-agent: Webster
+Disallow: /
+User-agent: WWWOFFLE
+Disallow: /
+User-agent: Xaldon
+Disallow: /
+User-agent: Zeus
+Disallow: /
+
+# --- Spam & blackhat SEO tools ---
+User-agent: EmailSiphon
+Disallow: /
+User-agent: EmailWolf
+Disallow: /
+User-agent: ExtractorPro
+Disallow: /
+User-agent: CherryPicker
+Disallow: /
+User-agent: Crescent
+Disallow: /
+User-agent: NICErs
+Disallow: /
+User-agent: SandCrawler
+Disallow: /
+User-agent: Scooter
+Disallow: /
+User-agent: Suck-O-Mat
+Disallow: /
+User-agent: WebAuto
+Disallow: /
+User-agent: WebBandit
+Disallow: /
+User-agent: WebCollage
+Disallow: /
+User-agent: WebEnhancer
+Disallow: /
+User-agent: WebFetch
+Disallow: /
+User-agent: WebGrabber
+Disallow: /
+User-agent: WebImageCollector
+Disallow: /
+User-agent: WebLeacher
+Disallow: /
+User-agent: WebMiner
+Disallow: /
+User-agent: WebMirror
+Disallow: /
+User-agent: Website Quester
+Disallow: /
+User-agent: WebSuction
+Disallow: /
+User-agent: WebVulnCrawl
+Disallow: /
+User-agent: WebWhacker
+Disallow: /
+User-agent: Wget
+Disallow: /
+User-agent: Whacker
+Disallow: /
+User-agent: Xenu
+Disallow: /
+
+# ============================================================
+#  7. SITEMAPS
+# ============================================================
+Sitemap: https://reybotix.ir/sitemap.xml
+Sitemap: https://reybotix.ir/sitemap-images.xml
+Sitemap: https://reybotix.ir/sitemap-videos.xml
+Sitemap: https://reybotix.ir/sitemap-index.xml
+
+# ============================================================
+#  8. ADDITIONAL INFORMATION
+# ============================================================
+# Host: https://reybotix.ir
+
+# ============================================================
+#  END OF robots.txt
+#  © ۱۴۰۴ Reybotix — All rights reserved.
+# ============================================================
